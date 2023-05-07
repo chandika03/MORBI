@@ -22,7 +22,7 @@
 
 .logo {
   font-size: 32px;
-  color: #fff;
+  color: #f9b5d0;
   text-decoration: none;
   font-weight: 700;
   /* pointer-events: none; */
@@ -30,7 +30,7 @@
 
 .navbar a {
   font-size: 18px;
-  color: #fff;
+  color: #f9b5d0;
   text-decoration: none;
   font-weight: 500;
   margin-right: 40px;
@@ -42,9 +42,9 @@
   border: none;
   outline: none;
   font-size: 19px;
-  color: #fff;
+  color: #f9b5d0;
   font-weight: 500;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .navbar .btnLogin-popup::before {
@@ -254,4 +254,23 @@
 .logreg-link p a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.btn-md {
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: #f9b5d0;
+  border-radius: 6px;
+  margin: 14px;
+}
+
+.btn-md a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+}
+.h-text {
+  align-items: center;
 }
