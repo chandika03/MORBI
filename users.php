@@ -24,10 +24,11 @@
       <nav class="navbar">
         <div class="container-fluid">
           <a class="logo">MORBI</a>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" method="POST" action="search.php">
             <input
               class="form-control me-2"
               type="search"
+              name="search"
               placeholder="Search"
               aria-label="Search"
             />
