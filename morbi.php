@@ -1,8 +1,8 @@
-<!-- <?php
+<?php
     include('dbconn.php');
 
     @$invalid = $_POST['invalid'];
-?> -->
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,16 +53,16 @@
               <h2>Login</h2>
               <p>Please login to use the platform</p>
             </div>
-            <form action="#">
+            <form action="logindb.php" method="POST">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" required />
-                <label>Username</label>
+                <input type="text" name="email" required />
+                <label>Email</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" required />
+                <input type="password" name="password" required />
                 <label>Password</label>
               </div>
 
@@ -86,28 +86,28 @@
               <h2>Sign In Form</h2>
               <p>Please provide the follwing to verify your identity</p>
             </div>
-            <form action="#" method="post">
+            <form action="signupdb.php" method="post">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" required />
+                <input type="text" name="name" required />
                 <label>Full Name</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i> </span>
-                <input type="email" required />
+                <input type="email" name="email" required />
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" required />
+                <input type="password" name="password" required />
                 <label>Password</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" required />
+                <input type="password" name="cpassword" required />
                 <label>Confirm Password</label>
               </div>
 
