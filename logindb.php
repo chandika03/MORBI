@@ -18,8 +18,9 @@
             $_SESSION['email'] = $email;
             header("Location: /morbi/homepage.php");
         }
+        else{
+            $invalid = "Invalid cred!";
+            header("Location: /morbi/morbi.php?invalid= $invalid");
+        }
     }
-    if (!isset($_SESSION['email'])){
-    $invalid = "Invalid Credentials!";
-    header("Location: /morbi/login.php?invalid= $invalid");}
 ?>

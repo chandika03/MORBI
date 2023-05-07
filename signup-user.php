@@ -1,5 +1,7 @@
 <?php
     include('dbconn.php');
+    $invalid = $_GET['invalid'];
+    echo $invalid."yoyoyo"; ?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +53,9 @@
                             <div class="text-center">
                               <button class="btn btn-primary btn-lg my-3" type="submit">Signup</button>
                             </div>
+                            <P><?php 
+                            
+                            echo $invalid."yoyoyo"; ?></p>
                         </form>
                         <p class="mb-0 text-center">Already have an account?<a href="login.php">Login</a></p>
                     </div>
