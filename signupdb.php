@@ -22,7 +22,7 @@
     header("Location: /morbi/morbi.php");
     }
     else{
-        header("Location: /morbi/signup-user.php?invalid =Password didn't Matched");
+        header("Location: /morbi/morbi?invalid =Password didn't Matched");
     }
     
 ?>
