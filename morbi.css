@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "Poppins", "sans-serif";
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .header {
   position: fixed;
@@ -61,7 +64,7 @@
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("templates/pexels-gustavo-fring-4148984.jpg") no-repeat;
-    /* background: solid #000; */
+  /* background: solid #000; */
   background-size: cover;
   background-position: center;
 }
@@ -85,6 +88,7 @@
   flex-direction: column;
   padding: 0 40px;
   opacity: 0;
+  /* display: none; */
   /* pointer-events: none; */
 }
 /* yeta bata */
@@ -256,4 +260,10 @@
 .logreg-link p a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* Error message */
+
+.error-message {
+  color: red;
 }

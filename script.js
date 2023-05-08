@@ -15,6 +15,7 @@ loginLink.onclick = () => {
 btnPopup.onclick = () => {
   wrapper.classList.add("active-popup");
   console.log("clicked");
+  console.log("button clicked");
 };
 
 iconClose.onclick = () => {

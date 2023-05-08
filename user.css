@@ -14,6 +14,11 @@ body {
   /* justify-content: center; */
   background-color: #efefef;
 }
+/* .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
 .navbar {
   margin-top: 1rem;
   display: flex;
@@ -69,10 +74,12 @@ body {
   margin: 0 40px;
   overflow: hidden;
   border-radius: 25px;
+  height: max-content;
 }
 .card {
   border-radius: 25px;
   background-color: #fff;
+  /* max-height: 25rem; */
 }
 .image-content,
 .card-content {

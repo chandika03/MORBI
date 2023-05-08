@@ -3,7 +3,7 @@
     session_start();
 
     @$invalid = $_POST['invalid'];
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,8 @@
       rel="stylesheet"
     />
     <title>Login</title>
-    <script src="script.js" defer></script>
+    <script src="./script.js" defer></script>
+    <script src="validate.js" defer></script>
   </head>
   <body>
     <!-- <div class="container my-5">
@@ -36,7 +37,7 @@
 
       <nav class="navbar">
         <a href="#">Home</a>
-        <a href="#">About us</a>
+        <a href="#aboutus">About us</a>
         <button class="btnLogin-popup">Login</button>
       </nav>
     </header>
@@ -87,28 +88,32 @@
               <h2>Sign In Form</h2>
               <p>Please provide the follwing to verify your identity</p>
             </div>
-            <form action="signupdb.php" method="post">
+            <form action="signupdb.php" method="post" id="form">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" name="name" required />
+                <input type="text" name="name" id="name" />
+                <div class="error-message" id="name-error"></div>
                 <label>Full Name</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i> </span>
-                <input type="email" name="email" required />
+                <input type="email" name="email" id="email" />
+                <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="password" required />
+                <input type="password" name="password" id="password" />
+                <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="cpassword" required />
+                <input type="password" name="cpassword"  id="confirm-password"/>
+                <div class="error-message" id="confirm-password-error"></div>
                 <label>Confirm Password</label>
               </div>
 
@@ -126,7 +131,7 @@
       </div>
     </section>
     <!-- About us -->
-    <div class="about-us">
+    <div class="about-us" id="aboutus">
       <div
         class="container d-flex justify-content-between align-items-center"
         style="margin-top: 5rem; margin-bottom: 5rem"
