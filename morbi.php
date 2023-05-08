@@ -1,5 +1,6 @@
 <?php
     include('dbconn.php');
+    session_start();
 
     @$invalid = $_POST['invalid'];
 ?> 
