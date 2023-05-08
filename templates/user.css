@@ -158,3 +158,23 @@ body {
     display: none;
   }
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+.logo {
+  font-size: 32px;
+  color: #f5c6ec;
+  text-decoration: none;
+  font-weight: 700;
+  /* pointer-events: hover; */
+}

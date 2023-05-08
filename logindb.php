@@ -13,15 +13,12 @@
 
     // $org_username = $value[0]['username'];
     // $org_password = $value[0]['password'];
-    echo "yoyoyo1";
     foreach($value as $item){
-        echo "yoyoyo2";
         if($email == $item['email'] && $password == $item['password']){
             $_SESSION['email'] = $email;
             header("Location: /morbi/homepage.php");
         }
     }
-    echo "yoyoyo3";
     if (!isset($_SESSION['email'])){
     $invalid = "Invalid Credentials!";
     header("Location: /morbi/login.php?invalid= $invalid");}

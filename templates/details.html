@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Profile</title>
+    <!-- <link rel="stylesheet" href="user.css" /> -->
+  </head>
+  <body>
+    <div class="update-profile">
+      <form action="#" method="post" enctype="multipart/form-data"></form>
+      <div class="inputBox">
+        <label for="profile-pic">Profile Picture:</label><br />
+        <img
+          src="Screenshot 2023-05-06 094402.png"
+          alt="profile picture"
+          style="border-radius: 50%"
+          width="190"
+          height="120"
+        /><br />
+        <div class="fullname"></div>
+        <label>Full Name</label>
+        <input type="text" name="name" /><br /><br />
+
+        <label>Username</label>
+        <input type="text" name="uname" /><br /><br />
+
+        <label>Email</label>
+        <input type="email" name="email" /><br /><br />
+
+        <label>Password</label>
+        <input type="password" name="password" /><br /><br />
+
+        <label for="gender">Gender:</label><br />
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other" />
+        <label for="other">Other</label><br />
+
+        <label for="pronouns">Pronouns:</label><br />
+        <select id="pronouns" name="pronouns">
+          <option value="he/him">He/Him</option>
+          <option value="she/her">She/Her</option>
+          <option value="they/them">They/Them</option>
+          <option value="other">Other</option></select
+        ><br /><br />
+
+        <label>Bio:</label><br />
+        <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br />
+
+        <input type="submit" value="Submit" />
+      </div>
+    </div>
+  </body>
+</html>
