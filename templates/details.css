@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #faeded;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: #f9b5d0;
+  width: 29%;
+  height: 40%;
+  border-radius: 3px;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  align-items: center;
+  height: 2rem;
+  color: #fff;
+  width: 5rem;
+  border-radius: 10px;
+  border: solid #fff;
+  background-color: #e86a9d;
+  cursor: pointer;
+}
