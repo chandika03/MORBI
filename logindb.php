@@ -16,7 +16,7 @@
     foreach($value as $item){
         if($email == $item['email'] && $password == $item['password']){
             $_SESSION['email'] = $email;
-            header("Location: /morbi/homepage.php");
+            header("Location: /morbi/users.php");
         }
         else{
             $invalid = "Invalid cred!";

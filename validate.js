@@ -1,4 +1,6 @@
-const form = document.querySelector("form");
+// const form = document.querySelector("form");
+const form = document.getElementById("myform");
+const login = document.getElementById("login-btn");
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -8,7 +10,7 @@ const emailError = document.getElementById("email-error");
 const passwordError = document.getElementById("password-error");
 const confirmPasswordError = document.getElementById("confirm-password-error");
 
-form.addEventListener("submit", function (event) {
+login.addEventListener("submit", function (event) {
   event.preventDefault();
   if (
     validateName() &&

@@ -55,7 +55,7 @@
               <h2>Login</h2>
               <p>Please login to use the platform</p>
             </div>
-            <form action="logindb.php" method="POST">
+            <form action="logindb.php" method="post">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
                 <input type="text" name="email" required />
@@ -73,7 +73,8 @@
                 <a href="#"> Forgot Password?</a>
               </div>
 
-              <button type="submit" class="btn">Login</button>
+              <button type="submit" class="btn" id="login-btn">Login</button>
+              <!-- <input type="submit"/> -->
 
               <div class="logreg-link">
                 <p>Don't have an account?</p>
@@ -86,7 +87,7 @@
           <div class="form-box signin">
             <div class="logreg-title">
               <h2>Sign In Form</h2>
-              <p>Please provide the follwing to verify your identity</p>
+              <p>Please provide the following to verify your identity</p>
             </div>
             <form action="signupdb.php" method="post" id="form">
               <div class="input-box">

@@ -2,6 +2,34 @@
   include('dbconn.php');
   session_start();
 
+
+  $stmt = $pdo->prepare("SELECT * FROM users");
+  $stmt -> execute();
+  $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  $user_id;
+  $i = 0;
+  $j = 0;
+  $searchValue;
+  @$user_id = $_GET[$i];
+@$count = $_GET['count'];
+
+  do{
+      if($user_id != null){
+              $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+              $stmt ->bindParam(':user_id', $user_id);
+              $stmt ->execute();
+          $value[$i] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          $searchValue = true;
+          }
+
+
+        else{
+          $searchValue = false;
+        }
+      $i++;
+  }while($i<$count);
+
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     $name = $_POST['name'];
