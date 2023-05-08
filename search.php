@@ -16,6 +16,7 @@
     $name_like = '%' . $name . '%';
     $stmt -> execute();
     $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $get_id = array();
 
     foreach($value as $item){
         $get_id[] = $item['user_id']; //used to take array of id's
