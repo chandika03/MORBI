@@ -99,6 +99,9 @@
             <button class="btn btn-outline-success" type="submit">
               Search
             </button>
+            <button>
+            <a href="details.php">Insert</a>
+        </button>
           </form>
         </div>
       </nav>
@@ -126,7 +129,7 @@
               <?php echo $item['user_details'] ?>
               </p>
 
-              <button class="button">View More</button>
+              <button class="button" onclick="message()">Message💬</button>
             </div>
             
           </div>
@@ -142,5 +145,10 @@
     </div>
     <?php }?>
   </body>
-  <script src="js/script.js"></script>
+  <script src="js/script.js">  </script>
+  <script>
+    function message(){
+      window.location.replace("./chat/bot.php");
+    }
+  </script>
 </html>

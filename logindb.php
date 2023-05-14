@@ -5,7 +5,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = ('SELECT email,password FROM signup');
+    $query = ('SELECT user_email, user_password FROM users');
     $stmt = $pdo->prepare($query);
     $stmt -> execute();
 
@@ -14,8 +14,8 @@
     // $org_username = $value[0]['username'];
     // $org_password = $value[0]['password'];
     foreach($value as $item){
-        if($email == $item['email'] && $password == $item['password']){
-            $_SESSION['email'] = $email;
+        if($email == $item['user_email'] && $password == $item['user_password']){
+            $_SESSION['user_email'] = $email;
             header("Location: /morbi/users.php");
         }
         else{

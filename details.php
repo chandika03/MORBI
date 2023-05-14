@@ -91,6 +91,9 @@
         <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br />
 
         <input type="submit" value="Submit" />
+        <button>
+            <a href="users.php">Back</a>
+        </button>
         </form>
       </div>
     </div>

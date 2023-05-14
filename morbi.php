@@ -137,14 +137,16 @@
         class="container d-flex justify-content-between align-items-center"
         style="margin-top: 5rem; margin-bottom: 5rem"
       >
-        <div class="image-container" style="width: 45%">
+        <!-- <div class="image-container" style="width: 45%">
           <img
             src="Screenshot 2023-05-06 094235.png"
             alt="Error"
             class="img-fluid"
           />
-        </div>
+        </div> -->
+        <center>
         <div class="text-container" style="width: 50%">
+        
           <h3 class="text-center">About MORBI</h3>
           <p style="text-align: justify">
             <b><i>MORBI</i></b> is an online dating platform that is primarily
@@ -157,9 +159,11 @@
             <br />
           </p>
           <div class="text-center">
-            <button class="btn-md"><a href="more.html">Learn More</a></button>
+            <button class="btn-md"><a href="./templates/more.html">Learn More</a></button>
           </div>
         </div>
+        
+      </center>
       </div>
     </div>
   </body>

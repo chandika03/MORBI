@@ -1,0 +1,6 @@
+CREATE TABLE chatbot (
+	id int not null AUTO_INCREMENT,
+    replies text DEFAULT NULL,
+    queries text DEFAULT NULL,
+    PRIMARY KEY (id)
+);
