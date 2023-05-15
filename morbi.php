@@ -19,7 +19,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>Login</title>
+    <title>MORBI</title>
     <script src="./script.js" defer></script>
     <script src="validate.js" defer></script>
   </head>

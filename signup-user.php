@@ -1,7 +1,7 @@
 <?php
     include('dbconn.php');
     $invalid = $_GET['invalid'];
-    echo $invalid."yoyoyo"; ?>
+    echo $invalid; ?>
 ?>
 <!DOCTYPE html>
 <html lang="en">

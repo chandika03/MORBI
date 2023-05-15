@@ -4,3 +4,13 @@ CREATE TABLE chatbot (
     queries text DEFAULT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE message (
+	id int not null AUTO_INCREMENT,
+    fromUser INT DEFAULT NULL,
+    toUser INT DEFAULT NULL,
+    message text,
+    PRIMARY KEY (id)
+);
+ALTER TABLE message add CONSTRAINT fromuser_fk FOREIGN KEY (fromUser) REFERENCES users(user_id);
+ALTER TABLE message add CONSTRAINT touser_fk FOREIGN KEY (toUser) REFERENCES users(user_id);

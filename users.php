@@ -1,7 +1,10 @@
 <?php
   include('dbconn.php');
   session_start();
-
+  if(!isset($_SESSION['user'])){
+    header("Location: /morbi/morbi.php");
+    exit();
+  }
     $stmt = $pdo->prepare("SELECT * FROM users");
     $stmt -> execute();
     $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -11,7 +14,7 @@
     $j = 0;
     $searchValue;
     @$user_id = $_GET[$i];
-  @$count = $_GET['count'];
+    @$count = $_GET['count'];
 
     do{
         if($user_id != null){
@@ -102,6 +105,9 @@
             <button>
             <a href="details.php">Insert</a>
         </button>
+            <button>
+            <a href="logout.php">Logout</a>
+        </button>
           </form>
         </div>
       </nav>
@@ -110,6 +116,9 @@
     <!-- profile -->
     <?php
         foreach ($value as $item){
+          if($item['user_id']=== $_SESSION['user']){
+            continue;//skipp logger user bc we don't need to show message option for logged user 
+          }
       ?>
     <div class="slide-container swiper">
       <div class="slide-content">
@@ -137,7 +146,7 @@
           </div>
         </div>
       </div>
-      <?php } ?>
+      <?php $toUser = $item['user_id'];} ?>
 
       <div class="swiper-button-next swiper-navBtn"></div>
       <div class="swiper-button-prev swiper-navBtn"></div>
@@ -148,7 +157,7 @@
   <script src="js/script.js">  </script>
   <script>
     function message(){
-      window.location.replace("./chat/bot.php");
+      window.location.replace("./chat/chatmodule.php?toId=$toUser");
     }
   </script>
 </html>
