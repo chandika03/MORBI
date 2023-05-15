@@ -1,16 +1,28 @@
 <?php 
   session_start();
+  echo $_SESSION['user'];
   if(!isset($_SESSION['user'])){
     header("Location: /login.php");
     exit();
   }
   include('../dbconn.php');
   $toUser = $_GET['toId'];
-  $stmt = $pdo->prepare("INSERT INTO message (fromUser, toUser) VALUE (:fromuser,:touser)");
-  $stmt->bindParam(':fromuser', $_SESSION['user']);
-  $stmt->bindParam(':touser', $toUser);
-  $stmt->execute();
+  $fromUser = $_SESSION['user'];
 
+  $stmt1 = $pdo->query("SELECT * FROM message WHERE fromUser=$fromUser AND toUser=$toUser");
+  $info=$stmt1->fetchAll(PDO::FETCH_ASSOC);
+  if(empty($info)){
+    $stmt = $pdo->prepare("INSERT INTO message (fromUser, toUser) VALUE (:fromuser,:touser)");
+    $stmt->bindParam(':fromuser', $fromUser);
+    $stmt->bindParam(':touser', $toUser);
+    $stmt->execute();
+  }
+
+  $stmt2=$pdo->prepare("SELECT * FROM message WHERE fromUser =:toUser AND toUser = :fromUser");
+  $stmt2->bindParam(':toUser', $toUser);
+  $stmt2->bindParam(':fromUser', $fromUser);
+  $stmt2->execute();
+  $reply_info=$stmt2->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +54,18 @@
             <div class="inbox">
                 <div class="icon">
                     <i class="fas fa-user"></i>
+                </div>
+                <div class="reply">
+                  <?php 
+                    if(empty($reply_info)){
+                      echo "";
+                    }
+                    else{
+                      foreach($reply_info as $reply){
+                        echo $reply['message'];
+                      }
+                    }
+                  ?>
                 </div>
             </div>
         </div>

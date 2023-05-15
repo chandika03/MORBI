@@ -20,6 +20,8 @@
 
 <?php 
     session_start();
+    echo $_SESSION['user'];
+
     if(!isset($_SESSION['user'])){
         header("Location: /login.php");
         exit();
@@ -32,5 +34,5 @@
     $stmt->bindParam(':touser', $toUser);
     $stmt->bindParam(':msg', $message);
     $stmt->execute();
-    
+    header("Location: /morbi/chat/chatmodule.php?toId=$toUser");
 ?>

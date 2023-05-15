@@ -1,6 +1,8 @@
 <?php
   include('dbconn.php');
   session_start();
+  echo $_SESSION['user'];
+
   if(!isset($_SESSION['user'])){
     header("Location: /morbi/morbi.php");
     exit();
@@ -38,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Card Slider</title>
 
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="swiper-bundle.min.css" /> -->
 
     <link rel="stylesheet" href="user.css" />
   </head>
@@ -109,11 +111,14 @@
         }}
         
         else{ 
+        }
     ?>
     <!-- profile -->
     <?php
         foreach ($value as $item){
-          if($item['user_id']=== $_SESSION['user']){
+          // echo $item['user_id']."id <br>";
+          // echo $_SESSION['user'];
+          if($item['user_id'] == $_SESSION['user']){
             continue;//skipp logger user bc we don't need to show message option for logged user 
           }
       ?>
@@ -130,12 +135,15 @@
               </div>
             </div>
             <div class="card-content">
-              <h2 class="name"><?php echo $item['user_name'] ?></h2>
+              <h2 class="name"><?php echo $item['user_name']; ?></h2>
               <p class="description">
-              <?php echo $item['user_details'] ?>
+              <?php echo $item['user_details']; ?>
               </p>
+              <p id="TOuser_id"><?php echo $item['user_id'];?></p>
 
-              <button class="button" onclick="message()">Message💬</button>
+              <!-- <button class="button" onclick="message()">Message💬</button> -->
+              <!-- <button class="button" id="msg_btn" name="msg_btn" onclick="message()" value="1">Message💬</button> -->
+              <a href= "./chat/chatmodule.php?toId=<?php echo $item['user_id'];?>"><button class="button" id="message_btn" >Message💬</button></a>
             </div>
             
           </div>
@@ -143,7 +151,6 @@
           </div>
         </div>
       </div>
-      <?php $toUser = $item['user_id'];} ?>
 
       <div class="swiper-button-next swiper-navBtn"></div>
       <div class="swiper-button-prev swiper-navBtn"></div>
@@ -151,10 +158,6 @@
     </div>
     <?php }?>
   </body>
-  <script src="js/script.js">  </script>
-  <script>
-    function message(){
-      window.location.replace("./chat/chatmodule.php?toId=$toUser");
-    }
-  </script>
+  <!-- <script src="script.js">  </script> -->
+  
 </html>
