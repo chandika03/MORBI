@@ -55,7 +55,7 @@
               <h2>Login</h2>
               <p>Please login to use the platform</p>
             </div>
-            <form action="logindb.php" method="post">
+            <form action="logindb.php" method="post" id="myform">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
                 <input type="text" name="email" required />
@@ -89,7 +89,7 @@
               <h2>Sign In Form</h2>
               <p>Please provide the following to verify your identity</p>
             </div>
-            <form action="signupdb.php" method="post" id="form">
+            <form action="signupdb.php" method="post" id="myform">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
                 <input type="text" name="name" id="name" />
@@ -118,7 +118,7 @@
                 <label>Confirm Password</label>
               </div>
 
-              <button type="submit" class="btn">Sign In</button>
+              <button type="submit" class="btn" id="login-btn">Sign In</button>
               <div class="logreg-link">
                 <p>
                   Already have an account?<a href="#" class="login-link"
