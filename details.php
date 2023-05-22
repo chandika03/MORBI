@@ -7,7 +7,7 @@
   $stmt -> execute();
   $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-  $user_id;
+  $loggeduserid=$_SESSION['user'];
   $i = 0;
   $j = 0;
   $searchValue;
@@ -38,9 +38,10 @@
     $gender = $_POST['gender'];
     $bio = $_POST['bio'];
 
-    $query = "INSERT INTO users(user_name, user_email, user_age, user_gender,user_details) VALUES (:name,:email,:age, :gender, :bio)";
+    $query = "UPDATE users SET user_name= :name, user_email=:email, user_age=:age, user_gender=:gender, user_details=:bio WHERE user_id = :userid";
 
     $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':userid', $loggeduserid);
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':age', $age);
@@ -57,6 +58,13 @@
     <title>Update Profile</title>
     <!-- <link rel="stylesheet" href="user.css" /> -->
   </head>
+  <?php 
+    $userkostmt = $pdo->prepare("SELECT * FROM users WHERE user_id =:user_id ");
+    $userkostmt -> bindParam(":user_id", $loggeduserid);
+    $userkostmt->execute();
+    $user_information = $userkostmt -> fetchall(PDO::FETCH_ASSOC);
+    foreach($user_information as $user_info){
+  ?>
   <body>
     <div class="update-profile">
       <form action="#" method="POST" enctype="multipart/form-data">
@@ -71,13 +79,13 @@
         <br /> 
         <br /> 
         <label>Full Name</label>
-        <input type="text" name="name" /><br />
+        <input type="text" name="name" value="<?php echo $user_info['user_name']?>" placeholder="Full Name"/><br />
 
         <label>Email</label>
-        <input type="email" name="email" /><br />
+        <input type="email" name="email" value="<?php echo $user_info['user_email']?>" placeholder="Email"/><br />
 
         <label>Age</label>
-        <input type="number" name="age" /><br />
+        <input type="text" name="age" value="<?php echo $user_info['user_age']?>"placeholder="Age" /><br />
 
         <label for="gender">Gender:</label><br />
         <input type="radio" id="male" name="gender" value="male" />
@@ -88,14 +96,14 @@
         <label for="other">Other</label><br />
         <br /><br />
         <label for="imageInput">Select an image:</label>
-  <input type="file" id="imageInput" name="image" accept="image/*" />
+  <input type="file" id="imageInput" name="image" accept="image/*" value="<?php echo $user_info['user_image']?>/>
   <button type="submit">Upload</button>
         <br>
         <br>
         <label>Bio:</label><br />
-        <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br />
+        <textarea id="bio" name="bio" rows="4" cols="50" value="<?php echo $user_info['user_details']?>" placeholder="Bio"></textarea><br />
 
-        
+        <?php  }?>
         <input type="submit" value="Submit" />
         <button>
             <a href="users.php">Back</a>
