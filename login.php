@@ -46,7 +46,7 @@
                                 <label for="password">Password:</label>
                                 <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password">
                             </div>
-                            <div class="link forget-pass text-left"><a href="forgot-password.php">Forgot password?</a></div>
+                            <!-- <div class="link forget-pass text-left"><a href="forgot-password.php">Forgot password?</a></div> -->
                     
                             <div class="text-center">
                                 <button class="btn btn-primary btn-lg my-3" type="submit">Login</button>

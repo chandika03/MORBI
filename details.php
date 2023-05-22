@@ -61,14 +61,15 @@
     <div class="update-profile">
       <form action="#" method="POST" enctype="multipart/form-data">
       <div class="inputBox">
-        <label for="profile-pic">Profile Picture:</label><br />
-        <img
+        
+        <!-- <img
           src="Screenshot 2023-05-06 094402.png"
           alt="profile picture"
           style="border-radius: 50%"
           width="100"
-        /><br />
-
+        />-->
+        <br /> 
+        <br /> 
         <label>Full Name</label>
         <input type="text" name="name" /><br />
 
@@ -86,10 +87,15 @@
         <input type="radio" id="other" name="gender" value="other" />
         <label for="other">Other</label><br />
         <br /><br />
-
+        <label for="imageInput">Select an image:</label>
+  <input type="file" id="imageInput" name="image" accept="image/*" />
+  <button type="submit">Upload</button>
+        <br>
+        <br>
         <label>Bio:</label><br />
         <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br />
 
+        
         <input type="submit" value="Submit" />
         <button>
             <a href="users.php">Back</a>
@@ -99,3 +105,45 @@
     </div>
   </body>
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $targetDir = "/images"; // Specify the directory to save the uploaded image
+  $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+  // Check if the file is an actual image
+  $check = getimagesize($_FILES["image"]["tmp_name"]);
+  if ($check === false) {
+    echo "Error: File is not an image.";
+    $uploadOk = 0;
+  }
+
+  // Check if the file already exists
+  if (file_exists($targetFile)) {
+    echo "Error: File already exists.";
+    $uploadOk = 0;
+  }
+
+  // Check the file size (optional)
+  if ($_FILES["image"]["size"] > 500000) {
+    echo "Error: File size is too large.";
+    $uploadOk = 0;
+  }
+
+  // Allow only specific file formats (optional)
+  if ($imageFileType !== "jpg" && $imageFileType !== "png" && $imageFileType !== "jpeg") {
+    echo "Error: Only JPG, JPEG, and PNG files are allowed.";
+    $uploadOk = 0;
+  }
+
+  // Move the uploaded file to the target directory
+  if ($uploadOk === 1) {
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+      echo "Image uploaded successfully.";
+    } else {
+      echo "Error: Failed to upload image.";
+    }
+  }
+}
+?>

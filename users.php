@@ -17,7 +17,7 @@
     $searchValue;
   
     @$count = $_GET['count'];
-   
+     
     $searchValue = false;
 
     do{
@@ -49,7 +49,7 @@
       <!-- nav bar -->
       <nav class="navbar">
         <div class="container-fluid">
-          <a class="logo">MORBI</a>
+          <a class="logo"><b>MORBI</b></a>
           <form class="d-flex" role="search" method="POST" action="search.php">
             <input
               class="form-control me-2"
@@ -61,13 +61,12 @@
             <button class="btn btn-outline-success" type="submit">
               Search
             </button>
-            <button>
-            <a href="details.php">Insert</a>
-        </button>
-            <button>
-            <a href="logout.php">Logout</a>
-        </button>
           </form>
+        </div>
+        <div class="profile">
+          <a href="details.php"
+            ><img src="/templates/1.jpg" alt=""
+          /></a>
         </div>
       </nav>
     </header>
