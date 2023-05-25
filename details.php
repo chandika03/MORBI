@@ -48,6 +48,7 @@
     $stmt->bindParam(':gender', $gender);
     $stmt->bindParam(':bio', $bio);
     $stmt->execute();
+    header("Location: users.php");
   }
 ?>
 <!DOCTYPE html>
@@ -85,7 +86,7 @@
         <input type="email" name="email" value="<?php echo $user_info['user_email']?>" placeholder="Email"/><br />
 
         <label>Age</label>
-        <input type="text" name="age" value="<?php echo $user_info['user_age']?>"placeholder="Age" /><br />
+        <input type="text" name="age" value="<?php echo $user_info['user_age']?>" placeholder="Age" /><br />
 
         <label for="gender">Gender:</label><br />
         <input type="radio" id="male" name="gender" value="male" />
@@ -96,12 +97,13 @@
         <label for="other">Other</label><br />
         <br /><br />
         <label for="imageInput">Select an image:</label>
-  <input type="file" id="imageInput" name="image" accept="image/*" value="<?php echo $user_info['user_image']?>/>
-  <button type="submit">Upload</button>
+        <input type="file" id="imageInput" name="image" accept="image/*" value="<?php echo $user_info['user_image']?>"/>
+ 
         <br>
         <br>
         <label>Bio:</label><br />
-        <textarea id="bio" name="bio" rows="4" cols="50" value="<?php echo $user_info['user_details']?>" placeholder="Bio"></textarea><br />
+        <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Bio"><?php echo $user_info['user_details']?>
+        </textarea><br />
 
         <?php  }?>
         <input type="submit" value="Submit" />
@@ -114,44 +116,44 @@
   </body>
 </html>
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $targetDir = "/images"; // Specify the directory to save the uploaded image
-  $targetFile = $targetDir . basename($_FILES["image"]["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+//   if ($_SERVER["REQUEST_METHOD"] === "POST") {
+//   $targetDir = "/images"; // Specify the directory to save the uploaded image
+//   $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+//   $uploadOk = 1;
+//   $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-  // Check if the file is an actual image
-  $check = getimagesize($_FILES["image"]["tmp_name"]);
-  if ($check === false) {
-    echo "Error: File is not an image.";
-    $uploadOk = 0;
-  }
+//   // Check if the file is an actual image
+//   $check = getimagesize($_FILES["image"]["tmp_name"]);
+//   if ($check === false) {
+//     echo "Error: File is not an image.";
+//     $uploadOk = 0;
+//   }
 
-  // Check if the file already exists
-  if (file_exists($targetFile)) {
-    echo "Error: File already exists.";
-    $uploadOk = 0;
-  }
+//   // Check if the file already exists
+//   if (file_exists($targetFile)) {
+//     echo "Error: File already exists.";
+//     $uploadOk = 0;
+//   }
 
-  // Check the file size (optional)
-  if ($_FILES["image"]["size"] > 500000) {
-    echo "Error: File size is too large.";
-    $uploadOk = 0;
-  }
+//   // Check the file size (optional)
+//   if ($_FILES["image"]["size"] > 500000) {
+//     echo "Error: File size is too large.";
+//     $uploadOk = 0;
+//   }
 
-  // Allow only specific file formats (optional)
-  if ($imageFileType !== "jpg" && $imageFileType !== "png" && $imageFileType !== "jpeg") {
-    echo "Error: Only JPG, JPEG, and PNG files are allowed.";
-    $uploadOk = 0;
-  }
+//   // Allow only specific file formats (optional)
+//   if ($imageFileType !== "jpg" && $imageFileType !== "png" && $imageFileType !== "jpeg") {
+//     echo "Error: Only JPG, JPEG, and PNG files are allowed.";
+//     $uploadOk = 0;
+//   }
 
-  // Move the uploaded file to the target directory
-  if ($uploadOk === 1) {
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-      echo "Image uploaded successfully.";
-    } else {
-      echo "Error: Failed to upload image.";
-    }
-  }
-}
+//   // Move the uploaded file to the target directory
+//   if ($uploadOk === 1) {
+//     if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+//       echo "Image uploaded successfully.";
+//     } else {
+//       echo "Error: Failed to upload image.";
+//     }
+//   }
+// }
 ?>

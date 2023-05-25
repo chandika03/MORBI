@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="chat.css" />
+    <script src="chat.js" defer></script>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="sidebar">
+        <div class="profile">
+          <img src="Screenshot 2023-05-06 094235.png" alt="Profile Image" />
+          <h3>name</h3>
+          <p>about user</p>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="active">Chats</li>
+        </ul>
+      </div>
+      <div class="chat">
+        <div class="chat-header">
+          <h2>Messages</h2>
+        </div>
+        <div class="chat-messages"></div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Type your message..."
+          />
+          <button id="send-button">Send</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

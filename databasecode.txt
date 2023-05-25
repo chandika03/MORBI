@@ -14,3 +14,18 @@ CREATE TABLE message (
 );
 ALTER TABLE message add CONSTRAINT fromuser_fk FOREIGN KEY (fromUser) REFERENCES users(user_id);
 ALTER TABLE message add CONSTRAINT touser_fk FOREIGN KEY (toUser) REFERENCES users(user_id);
+
+CREATE TABLE `report` (
+  `id` int(155) NOT NULL,
+  `userid` int(255) NOT NULL,
+  `reason` text NOT NULL,
+  `byuser` int(11) NOT NULL
+) 
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`);
+
+
+
+
+
+

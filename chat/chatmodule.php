@@ -33,51 +33,63 @@
   <title>Message</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" href="user.css" />
+  <link rel="stylesheet" href="chat.css" />
+  <script src="chat.js" defer></script>
+
 </head>
 <body>
-  <div class="modal-dialog">
-    <div class="modal_content">
-      <div class="modal_header">
-        <h4></h4>
-      </div>
-      <div class="image-content">
-        <span class="overlay"></span>
-        <div class="card-image">
-          <img src="1.jpg" alt="" class="card-img" />
+  <div class="chat-container">
+    <div class="sidebar">
+      <div class="profile">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <div class="card-image">
+            <img src="Screenshot 2023-05-06 094235.png" alt="Profile Image" />
+          </div>
         </div>
+            <h3>name of user you are chatting with</h3>
+            <!-- should redirect to this page and get the to id so that picture of the chatting person can be retrieved -->
+            <p>about user</p>
       </div>
+          <ul class="sidebar-menu">
+            <li class="active">Chats</li>
+          </ul>
     </div>
+
+        <div class="chat">
+          <div class="chat-header">
+            <h2>Messages</h2>
+          </div>
+          
+          <div class="form">
+                <div class="inbox">
+                    <div class="reply">
+                      <?php 
+                        if(empty($reply_info)){
+                          echo "";
+                        }
+                        else{
+                          foreach($reply_info as $reply){
+                            echo $reply['message'];
+                          }
+                        }
+                      ?>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-messages"> </div>
+            <div class="chat-input">
+                <div class="input-data">
+                  <form action='message.php?toId=<?php echo $toUser;?>' method="post">
+                    <input id="data" name="data" type="text" placeholder="Type something here.." required>
+                    <button id="send-button">Send</button>
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      
   </div>
-  <div class="wrapper">
-        <div class="title">Message</div>
-        <div class="form">
-            <div class="inbox">
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="reply">
-                  <?php 
-                    if(empty($reply_info)){
-                      echo "";
-                    }
-                    else{
-                      foreach($reply_info as $reply){
-                        echo $reply['message'];
-                      }
-                    }
-                  ?>
-                </div>
-            </div>
-        </div>
-        <div class="typing-field">
-            <div class="input-data">
-              <form action='message.php?toId=<?php echo $toUser;?>' method="post">
-                <input id="data" name="data" type="text" placeholder="Type something here.." required>
-                <button id="send-btn">Send</button>
-              </form>
-            </div>
-        </div>
-    </div>
     <script>
         // $(document).ready(function(){
         //     $("#send-btn").on("click", function(){
