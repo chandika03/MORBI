@@ -5,13 +5,22 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div id="reportOptions">
-      <select>
+    <div id="report">
+      <h3>Why are you reporting this user?</h3>
+      <style>
+        textarea {
+            width: 300px;
+            height: 200px;
+        }
+      </style>
+
+      <textarea id="reason" name="reason" placeholder="Enter your reasons here" required></textarea><br><br>
+      <!-- <select>
         <option disabled selected value="">Report this user</option>
         <option value="option">Spam</option>
         <option value="option">Inapproprite Content</option>
         <option value="option">Harassment</option>
-      </select>
+      </select> -->
         <button>
             <a href="  /morbi/users.php">Submit</a>
         </button>    
@@ -39,7 +48,7 @@ try {
         $reportType = $_POST['reportType'];
 
         // Store the reported user and report type in the database
-        $sql = "INSERT INTO reports (reported_user_id, report_type) VALUES (:userId, :reportType)";
+        $sql = "INSERT INTO report (reported_user_id, report_type) VALUES (:userId, :reportType)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':userId', $userId);
         $stmt->bindParam(':reportType', $reportType);

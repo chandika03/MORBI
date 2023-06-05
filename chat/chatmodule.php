@@ -54,7 +54,13 @@
           <ul class="sidebar-menu">
             <li class="active">Chats</li>
           </ul>
+          <footer> 
+          <button>
+            <a href="../report/report.php">Report</a>
+        </button>
+</footer>
     </div>
+    
 
         <div class="chat">
           <div class="chat-header">
@@ -88,7 +94,7 @@
             </div>
           </div>
         </div>
-      
+        
   </div>
     <script>
         // $(document).ready(function(){
