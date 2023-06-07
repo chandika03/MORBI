@@ -38,16 +38,60 @@
     $gender = $_POST['gender'];
     $bio = $_POST['bio'];
 
-    $query = "UPDATE users SET user_name= :name, user_email=:email, user_age=:age, user_gender=:gender, user_details=:bio WHERE user_id = :userid";
+    
+    
+    // Check if an image was uploaded
+    if (!empty($_FILES['image']['tmp_name'])) {
+        $image = $_FILES['image']['tmp_name'];
+        $targetDir = "images/";  // Specify the target directory to save the uploaded image
+        $targetFile = $targetDir . basename($_FILES["image"]["name"]);
+        
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($image, $targetFile)) {
+            // Image upload successful, store the image path in the database
+            $imagePath = $targetFile;
 
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':userid', $loggeduserid);
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':age', $age);
-    $stmt->bindParam(':gender', $gender);
-    $stmt->bindParam(':bio', $bio);
-    $stmt->execute();
+            $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio, user_image = :imagePath WHERE user_id = :userid";
+
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':userid', $loggeduserid);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':age', $age);
+            $stmt->bindParam(':gender', $gender);
+            $stmt->bindParam(':bio', $bio);
+            $stmt->bindParam(':imagePath', $imagePath);
+            $stmt->execute();
+        } else {
+            // Image upload failed, handle the error
+            // ...
+            echo "Upload failed!!";
+        }
+    } else {
+        // No image uploaded, only update other form data
+        $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio WHERE user_id = :userid";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':userid', $loggeduserid);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':gender', $gender);
+        $stmt->bindParam(':bio', $bio);
+        $stmt->execute();
+    }
+
+    // $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio, user_image = :imageData WHERE user_id = :userid";
+
+    // $stmt = $pdo->prepare($query);
+    // $stmt->bindParam(':userid', $loggeduserid);
+    // $stmt->bindParam(':name', $name);
+    // $stmt->bindParam(':email', $email);
+    // $stmt->bindParam(':age', $age);
+    // $stmt->bindParam(':gender', $gender);
+    // $stmt->bindParam(':bio', $bio);
+    // $stmt->bindParam(':imageData', $imageData, PDO::PARAM_LOB);
+    // $stmt->execute();
     header("Location: users.php");
   }
 ?>
@@ -97,7 +141,7 @@
         <label for="other">Other</label><br />
         <br /><br />
         <label for="imageInput">Select an image:</label>
-        <input type="file" id="imageInput" name="image" accept="image/*" value="<?php echo $user_info['user_image']?>"/>
+        <input type="file" id="imageInput" name="image" accept="images/*" />
  
         <br>
         <br>

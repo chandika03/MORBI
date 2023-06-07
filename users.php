@@ -66,8 +66,8 @@
         </div>
         <div class="profile">
           <a href="details.php"
-            ><img src="/templates/1.jpg" alt=""
-          /></a>
+            ><img src="<?php echo $value[0]['user_image']  ?>" alt=""
+          /></a> <!-- Added the reduired user image like this -->
         </div>
         
       </nav>
