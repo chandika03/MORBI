@@ -61,12 +61,12 @@
             <button class="btn btn-outline-success" type="submit">
               Search
             </button>
-    <button><a href="morbi.php">Logout</a></button>
+    <button><a href="logout.php">Logout</a></button>
           </form>
         </div>
         <div class="profile">
           <a href="details.php"
-            ><img src="<?php echo $value[0]['user_image']  ?>" alt=""
+            ><img src="<?php echo $value [$_SESSION['user'] - 1] ['user_image']  ?>" alt=""
           /></a> <!-- Added the reduired user image like this -->
         </div>
         
@@ -133,7 +133,7 @@
 
               
               <div class="card-image">
-                <img src="1.jpg" alt="" class="card-img" />
+                <img src="<?php echo $item['user_image']  ?>" alt="" class="card-img"/>
               </div>
             </div>
             <div class="card-content">
