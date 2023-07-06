@@ -37,6 +37,7 @@
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $bio = $_POST['bio'];
+    $image = $_POST['image'];
 
     
     
@@ -141,8 +142,7 @@
         <label for="other">Other</label><br />
         <br /><br />
         <label for="imageInput">Select an image:</label>
-        <input type="file" id="imageInput" name="image" accept="images/*" />
- 
+        <input type="file" id="imageInput" name="image" accept="images/* value="<?php echo $user_info['user_image']?>" /> 
         <br>
         <br>
         <label>Bio:</label><br />
