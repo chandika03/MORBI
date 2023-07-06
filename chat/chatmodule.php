@@ -23,6 +23,11 @@
   $stmt2->bindParam(':fromUser', $fromUser);
   $stmt2->execute();
   $reply_info=$stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+  $stmt3 = $pdo->prepare("SELECT * FROM users WHERE user_id = :toUser");
+  $stmt3->bindParam(':toUser', $toUser);
+  $stmt3->execute();
+  $toUser_image=$stmt3->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +37,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Message</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <link rel="stylesheet" href="user.css" />
+  <!-- <link rel="stylesheet" href="user.css" /> -->
   <link rel="stylesheet" href="chat.css" />
   <script src="chat.js" defer></script>
 
@@ -44,12 +49,13 @@
         <div class="image-content">
           <span class="overlay"></span>
           <div class="card-image">
-            <img src="Screenshot 2023-05-06 094235.png" alt="Profile Image" />
+            <!-- <img src="Screenshot 2023-05-06 094235.png" alt="Profile Image" /> -->
+            <img src="../<?php echo $toUser_image[0]['user_image'] ?>" />
           </div>
         </div>
-            <h3>name of user you are chatting with</h3>
+            <h3><?php echo $toUser_image[0]['user_name'] ?></h3>
             <!-- should redirect to this page and get the to id so that picture of the chatting person can be retrieved -->
-            <p>about user</p>
+            <p><?php echo $toUser_image[0]['user_details'] ?></p>
       </div>
           <ul class="sidebar-menu">
             <li class="active">Chats</li>
