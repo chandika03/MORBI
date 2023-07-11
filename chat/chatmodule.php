@@ -62,7 +62,7 @@
           </ul>
           <footer> 
           <button>
-            <a href="../report/report.php">Report</a>
+            <a href="../report/report.php?userId=<?php echo $toUser ?>">Report</a>
         </button>
 </footer>
     </div>
