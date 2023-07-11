@@ -12,8 +12,20 @@
     // $stmt -> bindParam(':password',$password);    
     $stmt->execute();
 
-    
+     // Fetch the user record
+     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+     if ($user && password_verify($password, $user['password'])) {
+         // Successful login
+         // Redirect or perform other actions
+         header("Location: /morbi/users.php");
+         exit();
+     } else {
+         // Invalid credentials
+         $invalid = "Invalid credentials!";
+         echo '<script>window.onload = function() { alert("Invalid credentials!"); }</script>'; // Display alert message using JavaScript in a popup window
+
+     }
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +70,19 @@
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         setTimeout(function() {
             // window.location.href = "/SL/phonebook/login.php"; // hide success message
             document.querySelector(".alert").style.display = "none";
       }, 5000);
+    </script> -->
+    <script>
+        setTimeout(function() {
+            var alertMessage = document.querySelector(".alert");
+            if (alertMessage) {
+                alertMessage.style.display = "none";
+            }
+        }, 5000);
     </script>
 </body>
 </html>

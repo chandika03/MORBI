@@ -103,6 +103,10 @@
         
   </div>
     <script>
+      setTimeout(function() {
+  location.reload(); // Reload the page
+}, 9000); // 9000 milliseconds = 9 seconds
+
         // $(document).ready(function(){
         //     $("#send-btn").on("click", function(){
         //         $value = $("#data").val();

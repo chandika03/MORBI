@@ -67,7 +67,7 @@
         <div class="profile">
           <a href="details.php"
             ><img src="<?php echo $value [$_SESSION['user'] - 1] ['user_image']  ?>" alt=""
-          /></a> <!-- Added the reduired user image like this -->
+          /></a> <!-- Added the required user image like this -->
         </div>
         
       </nav>

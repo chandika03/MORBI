@@ -35,6 +35,7 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $age = $_POST['age'];
+    $address = $_POST['address'];
     $gender = $_POST['gender'];
     $bio = $_POST['bio'];
     $image = $_POST['image'];
@@ -59,6 +60,7 @@
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':age', $age);
+            $stmt->bindParam(':address', $address);
             $stmt->bindParam(':gender', $gender);
             $stmt->bindParam(':bio', $bio);
             $stmt->bindParam(':imagePath', $imagePath);
@@ -70,13 +72,14 @@
         }
     } else {
         // No image uploaded, only update other form data
-        $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio WHERE user_id = :userid";
+        $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_address = :address, user_gender = :gender, user_details = :bio WHERE user_id = :userid";
 
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':userid', $loggeduserid);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':address', $address);
         $stmt->bindParam(':gender', $gender);
         $stmt->bindParam(':bio', $bio);
         $stmt->execute();
@@ -132,6 +135,9 @@
 
         <label>Age</label>
         <input type="text" name="age" value="<?php echo $user_info['user_age']?>" placeholder="Age" /><br />
+
+        <label>Address</label>
+        <input type="text" name="address" value="<?php echo $user_info['user_address']?>" placeholder="Address" /><br />
 
         <label for="gender">Gender:</label><br />
         <input type="radio" id="male" name="gender" value="male" />
