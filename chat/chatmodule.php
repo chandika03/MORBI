@@ -64,10 +64,11 @@
           <button>
             <a href="../report/report.php?userId=<?php echo $toUser ?>">Report</a>
         </button>
+        <button>
+            <a href="../users.php">Go Back</a>
+        </button>
 </footer>
     </div>
-    
-
         <div class="chat">
           <div class="chat-header">
             <h2>Messages</h2>
@@ -81,10 +82,10 @@
                           echo "";
                         }
                         else{
-                          foreach($reply_info as $reply){
-                            echo $reply['message'];
+                          // foreach($reply_info as $reply){
+                            echo $reply_info[0]['message'];
                           }
-                        }
+                        // }
                       ?>
                     </div>
                 </div>

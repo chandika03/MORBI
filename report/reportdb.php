@@ -37,3 +37,13 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button>
+            <a href="../users.php">OK</a>
+        </button>
+    </body>
+</html>

@@ -3,11 +3,44 @@
 <head>
   <title>Reported User Profiles</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+  background-color: #ffeaea;
+  color: #9a208c;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #e11299;
+}
+
+th {
+  background-color: #e11299;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f5c6ec;
+}
+
+tr:hover {
+  background-color: #ffeaea;
+}
+Write to Raisha Pradhananga
+
+  </style>
 </head>
 <body>
   <table>
     <tr>
       <th>ID</th>
+      <th>By User</th>
       <th>Name</th>
       <th>Email</th>
       <th>Reported Reason</th>
@@ -36,5 +69,8 @@ include '../dbconn.php';
     }
     ?>
   </table>
+  <button>
+  <a href="../morbi.php>Logout</a>
+  </button>
 </body>
 </html>

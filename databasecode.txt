@@ -28,6 +28,7 @@ CREATE TABLE message (
     message text,
     PRIMARY KEY (id)
 );
+ALTER TABLE message add timedefinition time;
 ALTER TABLE message add CONSTRAINT fromuser_fk FOREIGN KEY (fromUser) REFERENCES users(user_id);
 ALTER TABLE message add CONSTRAINT touser_fk FOREIGN KEY (toUser) REFERENCES users(user_id);
 
