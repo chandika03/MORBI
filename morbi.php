@@ -22,6 +22,388 @@
     <title>MORBI</title>
     <script src="./script.js" defer></script>
     <script src="validate.js" defer></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <style>
+      /* body {
+        font-family: Arial, sans-serif;
+        background-color: #ffeaea;
+        margin: 0;
+        padding: 0;
+      } */
+
+      .circle {
+        display: inline-block;
+        width: 144px;
+        height: 159px;
+        border-radius: 50%;
+        background-color: #f9b5d0;
+        text-align: center;
+        line-height: 120px;
+        margin: 20px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .circle a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .circle:hover {
+        background-color: #9a208c;
+      }
+
+      .div_container {
+        margin-top: 50px;
+      }
+
+      .div_container h2 {
+        color: #9a208c;
+        text-align: center;
+      }
+
+      .about-us {
+        background-color: #f5c6ec;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        padding: 2rem;
+      }
+
+      .about-us h3 {
+        text-align: center;
+        color: #e11299;
+      }
+
+      .about-us p {
+        text-align: justify;
+        color: #9a208c;
+      }
+
+      .about-us .btn-md {
+        background-color: #e11299;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .about-us .btn-md a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .StickyBanner_getStartedWrapper__Ek_uQ {
+        background-color: #f5c6ec;
+        margin: 0;
+        padding: 25px 0;
+        z-index: 1;
+      }
+
+      .StickyBanner_storyHeading__LTDaw {
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.8;
+        font-weight: 500;
+        font-family: Raleway, sans-serif;
+      }
+
+      .StickyBanner_getStartedBtn__Li6kN {
+        background: none;
+        border: 2px solid #fff;
+        border-radius: 3px;
+        padding: 11px 60px;
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+          0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        text-decoration: none !important;
+        margin-left: 50px;
+      }
+
+      header.header {
+        background-color: transparent;
+        color: #fff;
+        padding: 15px;
+      }
+
+      header.header a.logo {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      header.header .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+        font-weight: bold;
+      }
+
+      .section {
+        background-color: #f2f2f2;
+        padding: 50px;
+      }
+
+      .wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .form-box {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-box h2 {
+        color: #9a208c;
+        margin-top: 0;
+      }
+
+      .form-box p {
+        color: #e11299;
+        margin-bottom: 20px;
+      }
+
+      .form-box .input-box {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .form-box .input-box input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      .form-box .input-box label {
+        position: absolute;
+        top: -12px;
+        left: 10px;
+        font-size: 14px;
+        background-color: #fff;
+        padding: 0 5px;
+        color: #9a208c;
+      }
+
+      .form-box .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .form-box .remember-forgot label {
+        color: #9a208c;
+      }
+
+      .form-box button.btn {
+        background-color: #9a208c;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .logreg-link {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .logreg-link p {
+        color: #9a208c;
+        margin-bottom: 5px;
+      }
+
+      .logreg-link a {
+        color: #e11299;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .logreg-link a:hover {
+        text-decoration: underline;
+      }
+
+      .active-form {
+        display: block;
+      }
+
+      .icon-close {
+        display: block;
+        text-align: right;
+        cursor: pointer;
+        font-size: 24px;
+        color: #e11299;
+      }
+
+      .has-text-align-center {
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-stretch: normal;
+        font-style: normal;
+        font-weight: 500;
+        margin: 0 0 1.5em;
+      }
+
+      .wp-block-column.is-vertically-aligned-center {
+        align-self: center;
+      }
+
+      .wp-block-group.is-style-max-width .wp-block-group__inner-container {
+        max-width: 980px;
+      }
+      .wp-block-group .wp-block-group__inner-container {
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 0 20px;
+      }
+
+      .is-layout-flex {
+        display: flex;
+      }
+
+      p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
+      .wp-block-column {
+        flex-basis: 100%;
+        padding: 0;
+        width: 100%;
+      }
+
+      .wp-block-button.is-style-knightrider,
+      .wp-block-button.is-style-premium {
+        background-color: #f5c6ec;
+        background-image: url(/wplp/wp-content/themes/psg-homepage-theme/assets/img/bg/eharmony/premium.svg);
+        background-position: 50%;
+        background-size: 101% auto;
+        color: #fff;
+      }
+
+      .wp-block-button .wp-block-button__link {
+        background-color: transparent;
+        color: inherit;
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        line-height: 1;
+        padding: 16px 16px 14px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .wp-block-image .aligncenter,
+      .wp-block-image.aligncenter {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .wp-block-image:not(.is-style-rounded) img {
+        height: auto;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      .container {
+        max-width: 1170px;
+        margin: auto;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      ul {
+        list-style: none;
+      }
+      .footer {
+        background-color: #f9b5d0;
+        padding: 30px 0;
+      }
+      .footer-col {
+        width: 50%;
+        padding: 0 15px;
+      }
+      .footer-col h4 {
+        font-size: 20px;
+        color: #e11299;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+      }
+      .footer-col h4::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-color: #9a208c;
+        height: 2px;
+        box-sizing: border-box;
+        width: 50px;
+      }
+      .footer-col ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 300;
+        color: #fff;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      .footer-col .social-links a {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+      }
+      .footer-col .social-links a:hover {
+        color: #24262b;
+        background-color: #ffffff;
+      }
+    </style>
   </head>
   <body>
     <!-- <div class="container my-5">
@@ -92,28 +474,28 @@
             <form action="signupdb.php" method="post" id="myform">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" name="name" id="name" />
+                <input type="text" name="name" id="name" required/>
                 <div class="error-message" id="name-error"></div>
                 <label>Full Name</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i> </span>
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" required/>
                 <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="password" id="password" />
+                <input type="password" name="password" id="password" required/>
                 <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="cpassword"  id="confirm-password"/>
+                <input type="password" name="cpassword"  id="confirm-password" required/>
                 <div class="error-message" id="confirm-password-error"></div>
                 <label>Confirm Password</label>
               </div>
@@ -166,5 +548,87 @@
       </center>
       </div>
     </div>
+    <!-- Quality singles -->
+
+    <div class="wp-block-group__inner-container">
+      <h2
+        class="wp-block-heading has-text-align-center"
+        id="quality-singles-just-like-you"
+      >
+        Quality Singles, Just Like You
+      </h2>
+
+      <div
+        class="wp-block-columns md mobile-reverse-order are-vertically-aligned-center is-style-gap-30 is-layout-flex"
+      >
+        <div
+          class="wp-block-column is-vertically-aligned-center is-layout-flow"
+        >
+          <p>
+            Like you, they are tired of dating games. You can have complete<br />
+            confidence that all of your compatible matches are looking for
+            the<br />
+            same thing you are. Love that lasts.
+          </p>
+
+          <div
+            style="height: 20px"
+            aria-hidden="true"
+            class="wp-block-spacer"
+          ></div>
+          <div class="wp-block-buttons is-layout-flex">
+            <div class="wp-block-button is-style-premium">
+              <a
+                class="wp-block-button__link wp-element-button"
+                href="details.html"
+                >Join now</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="wp-block-column is-vertically-aligned-center is-layout-flow"
+        >
+          <figure class="wp-block-image aligncenter size-full">
+            <img
+              decoding="async"
+              loading="lazy"
+              width="412"
+              height="252"
+              src="./userimages/single.jpg"
+              alt=""
+              class="wp-image-59"
+              sizes="(max-width: 412px) 100vw, 412px"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+
   </body>
+  <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
 </html>
