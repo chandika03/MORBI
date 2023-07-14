@@ -43,7 +43,9 @@
     <!-- <link rel="stylesheet" href="swiper-bundle.min.css" /> -->
 
     <link rel="stylesheet" href="user.css" />
+    <link rel="stylesheet" href="./swiper.css">
   </head>
+
   <body>
   <header>
       <!-- nav bar -->
@@ -159,6 +161,8 @@
       <div class="swiper-pagination"></div>
     </div>
     <?php }?>
+    <script src = "./swiper.js"></script>
+    <script src = "./user.js"></script>
   </body>
   <!-- <script src="script.js">  </script> -->
   
