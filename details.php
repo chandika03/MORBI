@@ -105,7 +105,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Profile</title>
-<style>
+    <!-- <link rel="stylesheet" href="user.css" /> -->
+     <style>
       body {
         background-color: #ffeaea;
         color: #000000;
@@ -174,7 +175,8 @@
         border-radius: 5px;
         cursor: pointer;
       }
-    </style>    
+    </style>
+  </head>
   </head>
   <?php 
     $userkostmt = $pdo->prepare("SELECT * FROM users WHERE user_id =:user_id ");

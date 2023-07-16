@@ -4,50 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Profile</title>
-    <link rel="stylesheet" href="details.css" />
+    <style>
+      body {
+        background-color: #ffeaea;
+        color: #000000;
+      }
+
+      .update-profile {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form {
+        margin-bottom: 20px;
+      }
+
+      .profile {
+        text-align: center;
+      }
+
+      .profile img {
+        border-radius: 50%;
+        width: 190px;
+        height: 120px;
+      }
+
+      .fullname {
+        /* Add additional styling here if needed */
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #9a208c;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #e11299;
+        border-radius: 5px;
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      textarea {
+        height: 80px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #e11299;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="update-profile">
       <form action="#" method="post" enctype="multipart/form-data">
-      <div class="form">
-        <div class="profile">
-          <label for="profile-pic">Profile Picture:</label><br /><br>
-          <img
-            src="Screenshot 2023-05-06 094402.png"
-            alt="profile picture"
-            style="border-radius: 50%"
-            width="190"
-            height="120"
-          />
+        <div class="form">
+          <div class="profile">
+            <label for="profile-pic">Profile Picture:</label><br /><br />
+            <img src="Screenshot 2023-05-06 094402.png" alt="profile picture" />
+          </div>
+          <br />
+          <div class="fullname"></div>
+          <label>Full Name</label>
+          <input type="text" name="name" /><br /><br />
+
+          <label>Email</label>
+          <input type="email" name="email" /><br /><br />
+
+          <label>Password</label>
+          <input type="password" name="password" /><br /><br />
+
+          <label for="gender">Gender:</label><br />
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="other" />
+          <label for="other">Other</label><br /><br />
+
+          <label>Age</label>
+          <input type="text" name="age" /><br /><br />
+
+          <label>Bio:</label><br />
+          <textarea id="bio" name="bio" rows="4" cols="40"></textarea
+          ><br /><br />
+
+          <center><input type="submit" value="Submit" class="btn" /></center>
         </div>
-        <br />
-        <div class="fullname"></div>
-        <label>Full Name</label>
-        <input type="text" name="name" /><br /><br />
-
-        <label>Email</label>
-        <input type="email" name="email" /><br /><br />
-
-        <label>Password</label>
-        <input type="password" name="password" /><br /><br />
-
-        <label for="gender">Gender:</label><br />
-        <input type="radio" id="male" name="gender" value="male" />
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female" />
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="other" />
-        <label for="other">Other</label><br /><br>
-
-        <label>Age</label>
-        <input type="text" name="age" /><br /><br>
-
-        <label>Bio:</label><br />
-        <textarea id="bio" name="bio" rows="4" cols="40"></textarea><br /><br>
-
-        <center><input type="submit" value="Submit" class="btn" /></center>
-      </div>
+      </form>
     </div>
-  </form>
   </body>
 </html>

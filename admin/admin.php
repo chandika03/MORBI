@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,72 +6,63 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
     body {
-  background-color: #ffeaea;
-  color: #9a208c;
-  font-family: Arial, sans-serif;
-}
+      background-color: #ffeaea;
+      color: #9a208c;
+      font-family: Arial, sans-serif;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #e11299;
-}
+    th, td {
+      padding: 10px;
+      border: 1px solid #e11299;
+    }
 
-th {
-  background-color: #e11299;
-  color: #fff;
-}
+    th {
+      background-color: #e11299;
+      color: #fff;
+    }
 
-tr:nth-child(even) {
-  background-color: #f5c6ec;
-}
+    tr:nth-child(even) {
+      background-color: #f5c6ec;
+    }
 
-tr:hover {
-  background-color: #ffeaea;
-}
-
+    tr:hover {
+      background-color: #ffeaea;
+    }
   </style>
 </head>
 <body>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>By User</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Reported Reason</th>
-      <th>Action</th>
-    </tr>
-    <?php
-    // PHP code to fetch and display user profiles from the database
-  // Include the database connection file
+<?php
 include '../dbconn.php';
-    // Fetch user profiles from the database
-    $query = "SELECT * FROM users";
-    $statement = $pdo->query($query);
 
-    // Generate table rows dynamically
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        echo "<tr>";
-        echo "<td>".$row['user_id']."</td>";
-        echo "<td>".$row['byuser']."</td>";
-        echo "<td>".$row['user_name']."</td>";
-        echo "<td>".$row['user_email']."</td>";
-    }
-    $query = "SELECT * FROM report";
-    $statement = $pdo->query($query);
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        echo "<td>".$row['reason']."</td>";
-        echo "</tr>";
-    }
-    ?>
-  </table>
-  <button>
-  <a href="../morbi.php>Logout</a>
-  </button>
+// Fetch user profiles from the database
+$query = "SELECT users_reported.user_name AS reported_user_name, users_reporting.user_name AS reporting_user_name, report.reason, report.userid 
+          FROM report 
+          JOIN users AS users_reported ON report.userid = users_reported.user_id 
+          JOIN users AS users_reporting ON report.byuser = users_reporting.user_id";
+$statement = $pdo->query($query);
+$reportedProfiles = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<table>
+  <tr>
+    <th>Reported User</th>
+    <th>Reported By</th>
+    <th>Reason</th>
+    <th>Action</th>
+  </tr>
+  <?php foreach ($reportedProfiles as $reportedProfile): ?>
+    <tr>
+      <td><?php echo $reportedProfile['reported_user_name']; ?></td>
+      <td><?php echo $reportedProfile['reporting_user_name']; ?></td>
+      <td><?php echo $reportedProfile['reason']; ?></td>
+      <td><a href="delete.php?id=<?php echo $reportedProfile['userid']; ?>">Delete</a></td>
+    </tr>
+  <?php endforeach; ?>
+</table>
 </body>
 </html>

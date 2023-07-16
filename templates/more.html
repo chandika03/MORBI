@@ -1,135 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About us</title>
-    <link rel="stylesheet" href="user.css" />
+    <title>report</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
     <style>
-      :root {
-        --primary-color: #9a208c;
-        --secondary-color: #e11299;
-        --background-color: #ffeaea;
-        --accent-color: #f5c6ec;
+      body {
+        background-color: #ffeaea;
+        color: #9a208c;
+        font-family: Arial, sans-serif;
+        padding: 100px;
       }
 
-      .header {
-        background-color: var(--primary-color);
-        color: #fff;
-        padding: 10px;
+      #report {
+        background-color: #f5c6ec;
+        padding: 20px;
+        border-radius: 5px;
       }
 
-      .logo {
-        color: #fff;
-        font-weight: bold;
-        text-decoration: none;
+      h3 {
+        color: #e11299;
+        text-align: center;
       }
 
-      .navbar {
+      form {
         display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .navbar a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 10px;
+      .number {
+        padding: 20px;
+        width: 300px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
       }
 
-      .btnLogin-popup {
-        background-color: var(--accent-color);
+      input[type="text"],
+      textarea {
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #9a208c;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #9a208c;
         color: #fff;
         border: none;
-        padding: 5px 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
         cursor: pointer;
       }
 
-      .hr {
-        border: none;
-        height: 1px;
-        background-color: #fff;
-        margin: 10px 0;
-      }
-
-      .text {
-        padding: 20px;
-      }
-
-      .text-center {
-        text-align: center;
-        color: var(--primary-color);
-      }
-
-      .para {
-        text-align: justify;
-        color: var(--primary-color);
-      }
-
-      .highlights {
-        background-color: var(--background-color);
-        padding: 20px;
-        color: var(--primary-color);
-      }
-
-      .highlights h4 {
-        color: var(--primary-color);
-      }
-
-      .points {
-        margin-top: 10px;
-        color: var(--primary-color);
-      }
-
-      .points ul {
-        list-style-type: disc;
-        padding-left: 20px;
-      }
-
-      .points li {
-        margin-bottom: 5px;
+      input[type="submit"]:hover {
+        background-color: #e11299;
       }
     </style>
   </head>
   <body>
-    <header class="header">
-      <a href="../morbi.php" class="logo">MORBI</a>
+    <div id="report">
+      <h3>Why are you reporting this user?</h3>
 
-      <nav class="navbar">
-        <a href="../morbi.php">Home</a>
-        <button class="btnLogin-popup"><a href="../morbi.php">Login</a></button>
-      </nav>
-      <hr class="hr" />
-    </header>
-    <div class="text">
-      <h3 class="text-center">About MORBI</h3>
-      <div class="para">
-        <p style="text-align: justify">
-          <b><i>MORBI</i></b> is an online dating platform that is primarily
-          designed for connecting individuals looking for connections or
-          matrimonial alliances. It is an part of Global matrimony. Register
-          with us for FREE to find a partner of your choice. Take advantage of
-          our user friendly search features to find a bride or groom. Join us
-          and begin your happy jouney today.
+      <form action="reportdb.php" method="POST">
+        <div class="number">
+          <input
+            type="text"
+            name="userId"
+            value="<?php echo $_GET['userId'] ?>"
+            readonly
+          />
+        </div>
 
-          <br />
-        </p>
-      </div>
+        <textarea
+          id="reason"
+          name="reason"
+          placeholder="Enter your reasons here"
+          required
+        ></textarea
+        ><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
-
-    <div class="highlights">
-      <h4>Highlights of MORBI</h4>
-      <div class="points">
-        <ul>
-          <li>Free and easy profile registration</li>
-          <li>User friendly interface and features for easy partner search</li>
-          <li>Safe and secure</li>
-          <li>Enhanced privacy features to protect your personal details</li>
-          <li>
-            Global and wide set of profiles including people from all genders
-          </li>
-        </ul>
-      </div>
-    </div>
+    <script src="script.js"></script>
   </body>
 </html>
