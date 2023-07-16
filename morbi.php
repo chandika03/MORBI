@@ -20,14 +20,14 @@
       rel="stylesheet"
     />
     <title>MORBI</title>
-    <script src="./script.js" defer></script>
-    <script src="validate.js" defer></script>
+
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       /* body {
         font-family: Arial, sans-serif;
         background-color: #ffeaea;
@@ -225,12 +225,30 @@
         border-radius: 5px;
         cursor: pointer;
       }
-
+      .logreg-box .btn {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        /* cursor: pointer; */
+        font-size: 16px;
+        color: #222;
+        font-weight: 600;
+      }
       .logreg-link {
         text-align: center;
         margin-top: 20px;
       }
-
+      .logreg-box .logreg-link {
+        font-size: 14.5px;
+        color: #fff;
+        text-align: center;
+        font-weight: 500;
+        margin-top: 25px;
+      }
       .logreg-link p {
         color: #9a208c;
         margin-bottom: 5px;
@@ -244,6 +262,7 @@
 
       .logreg-link a:hover {
         text-decoration: underline;
+        cursor: pointer;
       }
 
       .active-form {
@@ -301,6 +320,9 @@
         width: 100%;
       }
 
+      .wp-block-heading {
+        color: #e11299;
+      }
       .wp-block-button.is-style-knightrider,
       .wp-block-button.is-style-premium {
         background-color: #f5c6ec;
@@ -333,8 +355,6 @@
       .wp-block-image:not(.is-style-rounded) img {
         height: auto;
       }
-
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
       .container {
         max-width: 1170px;
@@ -426,8 +446,8 @@
 
     <section class="section">
       <div class="wrapper">
-        <span class="icon-close">
-          <i class="bx bx-x"></i>
+        <span class="icon">
+          <i class="icon-close bx bx-x"></i>
         </span>
 
         <div class="logreg-box">
@@ -463,6 +483,9 @@
                 <a href="#" class="register-link">Sign Up</a>
               </div>
             </form>
+            <form action="admin-login.php" method="POST">
+              <button type="submit" class="btn">Login as Admin</button>
+            </form>
           </div>
 
           <!-- Sign In form -->
@@ -474,28 +497,33 @@
             <form action="signupdb.php" method="post" id="myform">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" name="name" id="name" required/>
+                <input type="text" name="name" id="name" required />
                 <div class="error-message" id="name-error"></div>
                 <label>Full Name</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i> </span>
-                <input type="email" name="email" id="email" required/>
+                <input type="email" name="email" id="email" required />
                 <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="password" id="password" required/>
+                <input type="password" name="password" id="password" required />
                 <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="cpassword"  id="confirm-password" required/>
+                <input
+                  type="password"
+                  name="cpassword"
+                  id="confirm-password"
+                  required
+                />
                 <div class="error-message" id="confirm-password-error"></div>
                 <label>Confirm Password</label>
               </div>
@@ -527,25 +555,25 @@
           />
         </div> -->
         <center>
-        <div class="text-container" style="width: 50%">
-        
-          <h3 class="text-center">About MORBI</h3>
-          <p style="text-align: justify">
-            <b><i>MORBI</i></b> is an online dating platform that is primarily
-            designed for connecting individuals looking for connections or
-            matrimonial alliances. It is an part of Global matrimony. Register
-            with us for FREE to find a partner of your choice. Take advantage of
-            our user friendly search features to find a bride or groom. Join us
-            and begin your happy jouney today...
+          <div class="text-container" style="width: 50%">
+            <h3 class="text-center">About MORBI</h3>
+            <p style="text-align: justify">
+              <b><i>MORBI</i></b> is an online dating platform that is primarily
+              designed for connecting individuals looking for connections or
+              matrimonial alliances. It is an part of Global matrimony. Register
+              with us for FREE to find a partner of your choice. Take advantage
+              of our user friendly search features to find a bride or groom.
+              Join us and begin your happy jouney today...
 
-            <br />
-          </p>
-          <div class="text-center">
-            <button class="btn-md"><a href="./templates/more.html">Learn More</a></button>
+              <br />
+            </p>
+            <div class="text-center">
+              <button class="btn-md">
+                <a href="./templates/more.html">Learn More</a>
+              </button>
+            </div>
           </div>
-        </div>
-        
-      </center>
+        </center>
       </div>
     </div>
     <!-- Quality singles -->
@@ -562,7 +590,7 @@
         class="wp-block-columns md mobile-reverse-order are-vertically-aligned-center is-style-gap-30 is-layout-flex"
       >
         <div
-          class="wp-block-column is-vertically-aligned-center is-layout-flow"
+          class="wp-block-column is-vertically-aligned-center is-layout-flow mx-5"
         >
           <p>
             Like you, they are tired of dating games. You can have complete<br />
@@ -605,30 +633,38 @@
         </div>
       </div>
     </div>
-
+    <script src="./script.js"></script>
+    <script src="validate.js"></script>
   </body>
   <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col">
-            <h4>company</h4>
-            <ul>
-              <li><a href="#">about us</a></li>
-              <li><a href="#">privacy policy</a></li>
-            </ul>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">privacy policy</a></li>
+          </ul>
+        </div>
 
-          <div class="footer-col">
-            <h4>follow us</h4>
-            <div class="social-links">
-              <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
-            </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
-
+    </div>
+  </footer>
 </html>

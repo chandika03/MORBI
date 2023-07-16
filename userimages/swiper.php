@@ -51,6 +51,9 @@ body {
   text-decoration: none;
   font-weight: 700;
 }
+/* .navbar{
+  width: 50%;
+} */
 
 .navbar a {
   font-size: 18px;
@@ -234,6 +237,19 @@ section .card .image img {
   color: #9a208c;
 }
 
+.profile{
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+}
+.profile img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50%;
+}
+
     </style>
 </head>
 <body>
@@ -241,9 +257,15 @@ section .card .image img {
       <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
         <a href="#">Home</a>
-  <input type="search" placeholder="Search">
-  <i class="fa-solid fa-magnifying-glass"></i>
+        <a href="#">About us</a>
+
+         <input type="search" placeholder="Search">
+       <i class="fa-solid fa-magnifying-glass"></i>
+
       </nav>
+      <div class="profile">
+        <img src="./1.jpg" alt="profile-img">
+      </div>
     </header>
 
 

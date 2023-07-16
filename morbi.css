@@ -169,14 +169,14 @@ html {
   border: none;
   outline: none;
   font-size: 16px;
-  color: #fff;
+  color: black;
   font-weight: 500;
   padding-right: 25px;
 }
 
 .input-box label {
   position: absolute;
-  color: #fff;
+  color: black;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
@@ -226,7 +226,7 @@ html {
   text-decoration: underline;
 }
 
-.logreg-box .btn {
+/* .logreg-box .btn {
   width: 100%;
   height: 45px;
   background: #fff;
@@ -235,24 +235,25 @@ html {
   border-radius: 40px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   /* cursor: pointer; */
-  font-size: 16px;
+/* font-size: 16px;
   color: #222;
   font-weight: 600;
-}
+} */
+*/
 
-.logreg-box .btn a:hover {
+/* .logreg-box .btn a:hover {
   background: transparent;
-}
-.logreg-box .logreg-link {
+} */
+/* .logreg-box .logreg-link {
   font-size: 14.5px;
   color: #fff;
   text-align: center;
   font-weight: 500;
   margin-top: 25px;
-}
+} */
 
-.logreg-link p a {
-  color: #fff;
+/* .logreg-link p a {
+  color: #9a208c;
   text-decoration: none;
   font-weight: 600;
 }
@@ -260,7 +261,7 @@ html {
 .logreg-link p a:hover {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 
 /* Error message */
 
