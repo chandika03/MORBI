@@ -12,6 +12,7 @@
 
     <script src="./swiper.js" defer></script>
     <script src="./user.js" defer></script>
+    <script src="./user.js" defer></script>
   </head>
   <body>
   <nav class="navbar">

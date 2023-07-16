@@ -102,6 +102,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Profile</title>
     <!-- <link rel="stylesheet" href="user.css" /> -->
+     <style>
+      body {
+        background-color: #ffeaea;
+        color: #000000;
+      }
+
+      .update-profile {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form {
+        margin-bottom: 20px;
+      }
+
+      .profile {
+        text-align: center;
+      }
+
+      .profile img {
+        border-radius: 50%;
+        width: 190px;
+        height: 120px;
+      }
+
+      .fullname {
+        /* Add additional styling here if needed */
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #9a208c;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #e11299;
+        border-radius: 5px;
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+
+      textarea {
+        height: 80px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #e11299;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
   </head>
   <?php 
     $userkostmt = $pdo->prepare("SELECT * FROM users WHERE user_id =:user_id ");
