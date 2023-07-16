@@ -32,7 +32,6 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ffeaea;
 }
-Write to Raisha Pradhananga
 
   </style>
 </head>
@@ -58,6 +57,7 @@ include '../dbconn.php';
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>";
         echo "<td>".$row['user_id']."</td>";
+        echo "<td>".$row['byuser']."</td>";
         echo "<td>".$row['user_name']."</td>";
         echo "<td>".$row['user_email']."</td>";
     }
