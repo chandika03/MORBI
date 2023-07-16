@@ -35,8 +35,10 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $age = $_POST['age'];
+    $address = $_POST['address'];
     $gender = $_POST['gender'];
     $bio = $_POST['bio'];
+    $image = $_POST['image'];
 
     
     
@@ -51,13 +53,14 @@
             // Image upload successful, store the image path in the database
             $imagePath = $targetFile;
 
-            $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio, user_image = :imagePath WHERE user_id = :userid";
+            $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_address = :address ,user_gender = :gender, user_details = :bio, user_image = :imagePath WHERE user_id = :userid";
 
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':userid', $loggeduserid);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':age', $age);
+            $stmt->bindParam(':address', $address);
             $stmt->bindParam(':gender', $gender);
             $stmt->bindParam(':bio', $bio);
             $stmt->bindParam(':imagePath', $imagePath);
@@ -69,13 +72,14 @@
         }
     } else {
         // No image uploaded, only update other form data
-        $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_gender = :gender, user_details = :bio WHERE user_id = :userid";
+        $query = "UPDATE users SET user_name = :name, user_email = :email, user_age = :age, user_address = :address, user_gender = :gender, user_details = :bio WHERE user_id = :userid";
 
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':userid', $loggeduserid);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':address', $address);
         $stmt->bindParam(':gender', $gender);
         $stmt->bindParam(':bio', $bio);
         $stmt->execute();
@@ -184,6 +188,7 @@
   <body>
     <div class="update-profile">
       <form action="#" method="POST" enctype="multipart/form-data">
+
       <div class="inputBox">
         
         <!-- <img
@@ -203,17 +208,23 @@
         <label>Age</label>
         <input type="text" name="age" value="<?php echo $user_info['user_age']?>" placeholder="Age" /><br />
 
+        <label>Address</label>
+        <input type="text" name="address" value="<?php echo $user_info['user_address']?>" placeholder="Address" /><br />
+
         <label for="gender">Gender:</label><br />
-        <input type="radio" id="male" name="gender" value="male" />
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female" />
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="other" />
-        <label for="other">Other</label><br />
+          <input type="radio" id="male" name="gender" value="male" <?php echo ($user_info['user_gender'] === 'male') ? 'checked' : ''; ?> />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female" <?php echo ($user_info['user_gender'] === 'female') ? 'checked' : ''; ?> />
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="other" <?php echo ($user_info['user_gender'] === 'other') ? 'checked' : ''; ?> />
+          <label for="other">Other</label><br />
+
         <br /><br />
         <label for="imageInput">Select an image:</label>
-        <input type="file" id="imageInput" name="image" accept="images/*" />
- 
+        <input type="file" id="imageInput" name="image" accept="images/*" value="<?php echo $user_info['user_image']?>" />
+
+
+
         <br>
         <br>
         <label>Bio:</label><br />

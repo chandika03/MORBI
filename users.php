@@ -43,7 +43,9 @@
     <!-- <link rel="stylesheet" href="swiper-bundle.min.css" /> -->
 
     <link rel="stylesheet" href="user.css" />
+    <link rel="stylesheet" href="./swiper.css">
   </head>
+
   <body>
   <header>
       <!-- nav bar -->
@@ -61,14 +63,14 @@
             <button class="btn btn-outline-success" type="submit">
               Search
             </button>
-    <button><a href="morbi.php">Logout</a></button>
+    <button><a href="logout.php">Logout</a></button>
           </form>
         </div>
         <div class="profile">
           <a href="details.php"
-            ><img src="<?php echo $value[0]['user_image']  ?>" alt=""
-          /></a> <!-- Added the reduired user image like this -->
-        </div>
+            ><img src="<?php echo $value [$_SESSION['user'] - 1] ['user_image']  ?>" alt=""
+          /></a> <!-- Added the required user image like this -->
+        </div><!-- profile -->
         
       </nav>
     </header>
@@ -133,7 +135,7 @@
 
               
               <div class="card-image">
-                <img src="1.jpg" alt="" class="card-img" />
+                <img src="<?php echo $item['user_image']  ?>" alt="" class="card-img"/>
               </div>
             </div>
             <div class="card-content">
@@ -159,6 +161,8 @@
       <div class="swiper-pagination"></div>
     </div>
     <?php }?>
+    <script src = "./swiper.js"></script>
+    <script src = "./user.js"></script>
   </body>
   <!-- <script src="script.js">  </script> -->
   
