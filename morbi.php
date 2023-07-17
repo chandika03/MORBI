@@ -608,7 +608,7 @@
             <div class="wp-block-button is-style-premium">
               <a
                 class="wp-block-button__link wp-element-button"
-                href="details.html"
+                href="#"
                 >Join now</a
               >
             </div>

@@ -292,6 +292,7 @@ section .card .image img {
       <nav class="navbar">
         <a href="#">Home</a>
         <a href="#">About us</a>
+          <form role="search" method="POST" action="search.php">
 
          <input type="search" placeholder="Search">
        <i class="fa-solid fa-magnifying-glass"></i>
@@ -338,9 +339,9 @@ section .card .image img {
 
             <div class="name-bio-age-address">
               <span class="name"><h2 class="name"><?php echo $item['user_name']; ?></h2></span>
-              <span class="age"><p id="TOuser_id"><?php echo $item['user_id'];?></p></span>
-              <span class="address">Nepal</span>
-              <span class="bio"><?php echo $item['user_details']; ?></span>
+              <span class="age"><?php echo $item['user_age'];?></span>
+              <span class="address"><?php echo $item['user_address'];?></span>
+              <span class="bio"><p>(<?php echo $item['user_details']; ?>)</p></span>
             </div>
 
          
