@@ -608,7 +608,7 @@
             <div class="wp-block-button is-style-premium">
               <a
                 class="wp-block-button__link wp-element-button"
-                href="#"
+                href="#" class="register-link"
                 >Join now</a
               >
             </div>
@@ -642,8 +642,8 @@
         <div class="footer-col">
           <h4>company</h4>
           <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">privacy policy</a></li>
+            <li><a href="./templates/more.html">about us</a></li>
+            <li><a href="privacy.html">privacy policy</a></li>
           </ul>
         </div>
 
