@@ -20,13 +20,13 @@ btnPopup.onclick = () => {
 };
 
 iconClose.onclick = () => {
-  console.log("removedd");
+  console.log("removed");
   wrapper.classList.remove("active-popup");
   wrapper.classList.remove("active");
 };
 
-// iconClose.addEventListener("click", () => {
-//   console.log("removedd");
-//   wrapper.classList.remove("active-popup");
-//   wrapper.classList.remove("active");
-// });
+iconClose.addEventListener("click", () => {
+  console.log("removed");
+  wrapper.classList.remove("active-popup");
+  wrapper.classList.remove("active");
+});

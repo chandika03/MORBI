@@ -99,184 +99,7 @@
         text-decoration: none;
       }
 
-      .StickyBanner_getStartedWrapper__Ek_uQ {
-        background-color: #f5c6ec;
-        margin: 0;
-        padding: 25px 0;
-        z-index: 1;
-      }
-
-      .StickyBanner_storyHeading__LTDaw {
-        color: #fff;
-        font-size: 24px;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 1.8;
-        font-weight: 500;
-        font-family: Raleway, sans-serif;
-      }
-
-      .StickyBanner_getStartedBtn__Li6kN {
-        background: none;
-        border: 2px solid #fff;
-        border-radius: 3px;
-        padding: 11px 60px;
-        font-size: 18px;
-        color: #fff;
-        display: inline-block;
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-          0 2px 10px 0 rgba(0, 0, 0, 0.12);
-        text-decoration: none !important;
-        margin-left: 50px;
-      }
-
-      header.header {
-        background-color: transparent;
-        color: #fff;
-        padding: 15px;
-      }
-
-      header.header a.logo {
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        text-decoration: none;
-      }
-
-      header.header .navbar a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 10px;
-        font-weight: bold;
-      }
-
-      .section {
-        background-color: #f2f2f2;
-        padding: 50px;
-      }
-
-      .wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .form-box {
-        display: none;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-box h2 {
-        color: #9a208c;
-        margin-top: 0;
-      }
-
-      .form-box p {
-        color: #e11299;
-        margin-bottom: 20px;
-      }
-
-      .form-box .input-box {
-        position: relative;
-        margin-bottom: 20px;
-      }
-
-      .form-box .input-box input {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        outline: none;
-      }
-
-      .form-box .input-box label {
-        position: absolute;
-        top: -12px;
-        left: 10px;
-        font-size: 14px;
-        background-color: #fff;
-        padding: 0 5px;
-        color: #9a208c;
-      }
-
-      .form-box .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .form-box .remember-forgot label {
-        color: #9a208c;
-      }
-
-      .form-box button.btn {
-        background-color: #9a208c;
-        border: none;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .logreg-box .btn {
-        width: 100%;
-        height: 45px;
-        background: #fff;
-        border: none;
-        outline: none;
-        border-radius: 40px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        /* cursor: pointer; */
-        font-size: 16px;
-        color: #222;
-        font-weight: 600;
-      }
-      .logreg-link {
-        text-align: center;
-        margin-top: 20px;
-      }
-      .logreg-box .logreg-link {
-        font-size: 14.5px;
-        color: #fff;
-        text-align: center;
-        font-weight: 500;
-        margin-top: 25px;
-      }
-      .logreg-link p {
-        color: #9a208c;
-        margin-bottom: 5px;
-      }
-
-      .logreg-link a {
-        color: #e11299;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .logreg-link a:hover {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-
-      .active-form {
-        display: block;
-      }
-
-      .icon-close {
-        display: block;
-        text-align: right;
-        cursor: pointer;
-        font-size: 24px;
-        color: #e11299;
-      }
-
+      
       .has-text-align-center {
         text-align: center;
       }
@@ -306,7 +129,10 @@
       .is-layout-flex {
         display: flex;
       }
-
+ 
+      .has-text-align-center{
+        align-items:center;
+      }
       p {
         display: block;
         margin-block-start: 1em;
@@ -446,10 +272,10 @@
 
     <section class="section">
       <div class="wrapper">
+        
         <span class="icon">
           <i class="icon-close bx bx-x"></i>
         </span>
-
         <div class="logreg-box">
           <!-- Login popup -->
           <div class="form-box login">
@@ -470,13 +296,8 @@
                 <label>Password</label>
               </div>
 
-              <!-- <div class="remember-forgot">
-                <label><input type="checkbox" />Remember me </label>
-                <a href="#"> Forgot Password?</a>
-              </div> -->
 
               <button type="submit" class="btn" id="login-btn">Login</button>
-              <!-- <input type="submit"/> -->
 
               <div class="logreg-link">
                 <p>Don't have an account?</p>
@@ -484,12 +305,13 @@
               </div>
             </form>
             <form action="admin-login.php" method="POST">
-              <button type="submit" class="btn">Login as Admin</button>
+              <button type="submit" class="btn"><a href="adminlogin.php">Login as Admin</a></button>
             </form>
           </div>
 
           <!-- Sign In form -->
           <div class="form-box signin">
+          
             <div class="logreg-title">
               <h2>Sign In Form</h2>
               <p>Please provide the following to verify your identity</p>
@@ -538,7 +360,7 @@
               </div>
             </form>
           </div>
-        </div>
+          
       </div>
     </section>
     <!-- About us -->
