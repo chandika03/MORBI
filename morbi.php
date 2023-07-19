@@ -20,14 +20,14 @@
       rel="stylesheet"
     />
     <title>MORBI</title>
-    <script src="./script.js" defer></script>
-    <script src="validate.js" defer></script>
+
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       /* body {
         font-family: Arial, sans-serif;
         background-color: #ffeaea;
@@ -99,165 +99,7 @@
         text-decoration: none;
       }
 
-      .StickyBanner_getStartedWrapper__Ek_uQ {
-        background-color: #f5c6ec;
-        margin: 0;
-        padding: 25px 0;
-        z-index: 1;
-      }
-
-      .StickyBanner_storyHeading__LTDaw {
-        color: #fff;
-        font-size: 24px;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 1.8;
-        font-weight: 500;
-        font-family: Raleway, sans-serif;
-      }
-
-      .StickyBanner_getStartedBtn__Li6kN {
-        background: none;
-        border: 2px solid #fff;
-        border-radius: 3px;
-        padding: 11px 60px;
-        font-size: 18px;
-        color: #fff;
-        display: inline-block;
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-          0 2px 10px 0 rgba(0, 0, 0, 0.12);
-        text-decoration: none !important;
-        margin-left: 50px;
-      }
-
-      header.header {
-        background-color: transparent;
-        color: #fff;
-        padding: 15px;
-      }
-
-      header.header a.logo {
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        text-decoration: none;
-      }
-
-      header.header .navbar a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 10px;
-        font-weight: bold;
-      }
-
-      .section {
-        background-color: #f2f2f2;
-        padding: 50px;
-      }
-
-      .wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .form-box {
-        display: none;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-box h2 {
-        color: #9a208c;
-        margin-top: 0;
-      }
-
-      .form-box p {
-        color: #e11299;
-        margin-bottom: 20px;
-      }
-
-      .form-box .input-box {
-        position: relative;
-        margin-bottom: 20px;
-      }
-
-      .form-box .input-box input {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        outline: none;
-      }
-
-      .form-box .input-box label {
-        position: absolute;
-        top: -12px;
-        left: 10px;
-        font-size: 14px;
-        background-color: #fff;
-        padding: 0 5px;
-        color: #9a208c;
-      }
-
-      .form-box .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      .form-box .remember-forgot label {
-        color: #9a208c;
-      }
-
-      .form-box button.btn {
-        background-color: #9a208c;
-        border: none;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .logreg-link {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      .logreg-link p {
-        color: #9a208c;
-        margin-bottom: 5px;
-      }
-
-      .logreg-link a {
-        color: #e11299;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .logreg-link a:hover {
-        text-decoration: underline;
-      }
-
-      .active-form {
-        display: block;
-      }
-
-      .icon-close {
-        display: block;
-        text-align: right;
-        cursor: pointer;
-        font-size: 24px;
-        color: #e11299;
-      }
-
+      
       .has-text-align-center {
         text-align: center;
       }
@@ -287,7 +129,10 @@
       .is-layout-flex {
         display: flex;
       }
-
+ 
+      .has-text-align-center{
+        align-items:center;
+      }
       p {
         display: block;
         margin-block-start: 1em;
@@ -301,6 +146,9 @@
         width: 100%;
       }
 
+      .wp-block-heading {
+        color: #e11299;
+      }
       .wp-block-button.is-style-knightrider,
       .wp-block-button.is-style-premium {
         background-color: #f5c6ec;
@@ -333,8 +181,6 @@
       .wp-block-image:not(.is-style-rounded) img {
         height: auto;
       }
-
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
       .container {
         max-width: 1170px;
@@ -426,10 +272,10 @@
 
     <section class="section">
       <div class="wrapper">
-        <span class="icon-close">
-          <i class="bx bx-x"></i>
+        
+        <span class="icon">
+          <i class="icon-close bx bx-x"></i>
         </span>
-
         <div class="logreg-box">
           <!-- Login popup -->
           <div class="form-box login">
@@ -450,23 +296,22 @@
                 <label>Password</label>
               </div>
 
-              <!-- <div class="remember-forgot">
-                <label><input type="checkbox" />Remember me </label>
-                <a href="#"> Forgot Password?</a>
-              </div> -->
 
               <button type="submit" class="btn" id="login-btn">Login</button>
-              <!-- <input type="submit"/> -->
 
               <div class="logreg-link">
                 <p>Don't have an account?</p>
                 <a href="#" class="register-link">Sign Up</a>
               </div>
             </form>
+            <form action="admin-login.php" method="POST">
+              <button type="submit" class="btn"><a href="adminlogin.php">Login as Admin</a></button>
+            </form>
           </div>
 
           <!-- Sign In form -->
           <div class="form-box signin">
+          
             <div class="logreg-title">
               <h2>Sign In Form</h2>
               <p>Please provide the following to verify your identity</p>
@@ -474,28 +319,33 @@
             <form action="signupdb.php" method="post" id="myform">
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i> </span>
-                <input type="text" name="name" id="name" required/>
+                <input type="text" name="name" id="name" required />
                 <div class="error-message" id="name-error"></div>
                 <label>Full Name</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-envelope"></i> </span>
-                <input type="email" name="email" id="email" required/>
+                <input type="email" name="email" id="email" required />
                 <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="password" id="password" required/>
+                <input type="password" name="password" id="password" required />
                 <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
                 <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
-                <input type="password" name="cpassword"  id="confirm-password" required/>
+                <input
+                  type="password"
+                  name="cpassword"
+                  id="confirm-password"
+                  required
+                />
                 <div class="error-message" id="confirm-password-error"></div>
                 <label>Confirm Password</label>
               </div>
@@ -510,7 +360,7 @@
               </div>
             </form>
           </div>
-        </div>
+          
       </div>
     </section>
     <!-- About us -->
@@ -527,25 +377,25 @@
           />
         </div> -->
         <center>
-        <div class="text-container" style="width: 50%">
-        
-          <h3 class="text-center">About MORBI</h3>
-          <p style="text-align: justify">
-            <b><i>MORBI</i></b> is an online dating platform that is primarily
-            designed for connecting individuals looking for connections or
-            matrimonial alliances. It is an part of Global matrimony. Register
-            with us for FREE to find a partner of your choice. Take advantage of
-            our user friendly search features to find a bride or groom. Join us
-            and begin your happy jouney today...
+          <div class="text-container" style="width: 50%">
+            <h3 class="text-center">About MORBI</h3>
+            <p style="text-align: justify">
+              <b><i>MORBI</i></b> is an online dating platform that is primarily
+              designed for connecting individuals looking for connections or
+              matrimonial alliances. It is an part of Global matrimony. Register
+              with us for FREE to find a partner of your choice. Take advantage
+              of our user friendly search features to find a bride or groom.
+              Join us and begin your happy jouney today...
 
-            <br />
-          </p>
-          <div class="text-center">
-            <button class="btn-md"><a href="./templates/more.html">Learn More</a></button>
+              <br />
+            </p>
+            <div class="text-center">
+              <button class="btn-md">
+                <a href="./templates/more.html">Learn More</a>
+              </button>
+            </div>
           </div>
-        </div>
-        
-      </center>
+        </center>
       </div>
     </div>
     <!-- Quality singles -->
@@ -562,7 +412,7 @@
         class="wp-block-columns md mobile-reverse-order are-vertically-aligned-center is-style-gap-30 is-layout-flex"
       >
         <div
-          class="wp-block-column is-vertically-aligned-center is-layout-flow"
+          class="wp-block-column is-vertically-aligned-center is-layout-flow mx-5"
         >
           <p>
             Like you, they are tired of dating games. You can have complete<br />
@@ -580,7 +430,7 @@
             <div class="wp-block-button is-style-premium">
               <a
                 class="wp-block-button__link wp-element-button"
-                href="details.html"
+                href="#" class="register-link"
                 >Join now</a
               >
             </div>
@@ -605,30 +455,38 @@
         </div>
       </div>
     </div>
-
+    <script src="./script.js"></script>
+    <script src="validate.js"></script>
   </body>
   <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col">
-            <h4>company</h4>
-            <ul>
-              <li><a href="#">about us</a></li>
-              <li><a href="#">privacy policy</a></li>
-            </ul>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="./templates/more.html">about us</a></li>
+            <li><a href="privacy.html">privacy policy</a></li>
+          </ul>
+        </div>
 
-          <div class="footer-col">
-            <h4>follow us</h4>
-            <div class="social-links">
-              <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
-            </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
-
+    </div>
+  </footer>
 </html>
