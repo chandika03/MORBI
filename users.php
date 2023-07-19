@@ -77,23 +77,23 @@
     
   <?php
   
-        if($searchValue){
-        foreach($value as $item){?>
-        
-        
-      <div class="slide-container swiper">
-      <div class="slide-content">
-        <div class="card-wrapper swiper-wrapper">
-          <div class="card swiper-slide">
-            <div class="image-content">
-              <span class="overlay"></span>
-
-              
-              <div class="card-image">
-                <img src="1.jpg" alt="" class="card-img" />
-              </div>
-            </div>
-            <div class="card-content">
+        if($searchValue){ ?>
+          <?php foreach($value as $item){?>
+          
+          
+          <div class="slide-container swiper">
+            <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                  <div class="image-content">
+                    <span class="overlay"></span>
+                    
+                    
+                    <div class="card-image">
+                      <img src="1.jpg" alt="" class="card-img" />
+                    </div>
+                  </div>
+                  <div class="card-content">
               <h2 class="name"><?php echo $item[0]['user_name'] ?></h2>
               <p class="description">
               <?php echo $item[0]['user_details'] ?>

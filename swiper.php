@@ -1,3 +1,37 @@
+<?php
+  include('dbconn.php');
+  session_start();
+  echo $_SESSION['user'];
+
+  if(!isset($_SESSION['user'])){
+    header("Location: /morbi/morbi.php");
+    exit();
+  }
+    $stmt = $pdo->prepare("SELECT * FROM users");
+    $stmt -> execute();
+    $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $user_id;
+    $i = 0;
+    $j = 0;
+    $searchValue;
+  
+    @$count = $_GET['count'];
+     
+    $searchValue = false;
+
+    do{
+        if($count != null){
+                @$user_id = $_GET[$i];
+                $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+                $stmt ->bindParam(':user_id', $user_id);
+                $stmt ->execute();
+            $value[$i] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $searchValue = true;
+            }
+        $i++;
+    }while($i<$count);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
