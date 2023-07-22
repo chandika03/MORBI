@@ -314,8 +314,9 @@ if (isset($_POST['search'])){
 
   $name = strtolower($_POST['search']);
   
-  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name");
+  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name AND user_id != :current_user");
   $stmt->bindParam(':name', $name_like);
+  $stmt -> bindParam(":current_user", $current_user);
   $name_like = '%' . $name . '%';
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
