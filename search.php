@@ -28,6 +28,7 @@
     $queryString = http_build_query($get_id);
     
     // Sending the values using the header function
-    header("Location: /MORBI/users.php?count=$count&$queryString");
+    // header("Location: /MORBI/users.php?count=$count&$queryString");
+    header("Location: /MORBI/users.php?value=$value");
 
 ?>

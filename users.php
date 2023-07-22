@@ -1,16 +1,283 @@
 <?php
-  include('dbconn.php');
+include('dbconn.php');
+  //search
   session_start();
   echo $_SESSION['user'];
-
+  
   if(!isset($_SESSION['user'])){
     header("Location: /morbi/morbi.php");
     exit();
   }
-    $stmt = $pdo->prepare("SELECT * FROM users");
-    $stmt -> execute();
-    $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+/* === Google Font Import - Poppins === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffeaea;
+}
+/* nav */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: #9a208c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+/* .navbar{
+  width: 50%;
+} */
+
+.navbar a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 40px;
+}
+
+section {
+  position: relative;
+  height: 470px;
+  width: 1075px;
+  display: flex;
+  align-items: center;
+}
+
+.swiper {
+  width: 1000px;
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  height: 400px;
+  margin: 20px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  
+  height: 40%;
+  width: 100%;
+  background: #ffeaea; /* Updated color */
+  color: black;
+  border-radius: 20px 20px 0 0;
+}
+
+.card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  z-index: 100;
+}
+
+section .card .image {
+  height: 140px;
+  width: 140px;
+  border-radius: 20%;
+  padding: 3px;
+  background: #9a208c; 
+  margin-top: 30px;
+}
+
+section .card .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20%;
+  border: 3px solid #fff;
+}
+
+.card .media-icons {
+  position: absolute;
+  top: 12px;
+  right: 95px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card .media-icons i {
+  color: #9a208c; 
+  opacity: 0.6;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.card .media-icons i:hover {
+  opacity: 2;
+}
+
+.card .name-bio-age-address{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  color: black;
+}
+
+.name-bio-age-address .name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.name-bio-age-address .bio {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.name-bio-age-address .age {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.name-bio-age-address .address{
+  font-size: 15px;
+  font-weight: 500;
+  color:black;
+
+}
+.card .button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card .button button {
+  background: #9a208c; 
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background: #e11299; 
+}
+
+.swiper-pagination {
+  position: absolute;
+  top: 470px;
+}
+
+.swiper-pagination-bullet {
+    
+  height: 7px;
+  width: 26px;
+  border-radius: 25px;
+  background: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+
+  opacity: 0.7;
+  color: black;
+  transition: all 0.3s ease;
+ 
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+  color: white;
+}
+.header input{
+  width: 10rem;
+  height: 2rem;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid #fff;
+  padding-left: 1rem;
+}
+.header i{
+  position: relative;
+  
+  left: -2rem;
+  color: #9a208c;
+}
+
+.profile{
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+}
+.profile img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<header class="header">
+      <a href="#" class="logo">MORBI</a>
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About us</a>
+          <form role="search" method="POST" action="">
+            <input type="search" name= "search" placeholder="Search">
+          </form>
+       <i class="fa-solid fa-magnifying-glass"></i>
+      </nav>
+
+  <?php
+  $current_user = (int)$_SESSION['user'];
+
+  $convert_user =  (int)$current_user;
+    
     $user_id;
     $i = 0;
     $j = 0;
@@ -19,151 +286,87 @@
     @$count = $_GET['count'];
      
     $searchValue = false;
-
-    do{
-        if($count != null){
-                @$user_id = $_GET[$i];
-                $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
-                $stmt ->bindParam(':user_id', $user_id);
-                $stmt ->execute();
-            $value[$i] = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $searchValue = true;
-            }
-        $i++;
-    }while($i<$count);
+    if(isset($_POST['search'])){
+      $searchValue = $_POST['search'];
+    }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Users</title>
 
-    <!-- <link rel="stylesheet" href="swiper-bundle.min.css" /> -->
-
-    <link rel="stylesheet" href="user.css" />
-    <link rel="stylesheet" href="./swiper.css">
-  </head>
-
-  <body>
-  <header>
-      <!-- nav bar -->
-      <nav class="navbar">
-        <div class="container-fluid">
-          <a class="logo"><b>MORBI</b></a>
-          <form class="d-flex" role="search" method="POST" action="search.php">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-    <button><a href="logout.php">Logout</a></button>
-          </form>
-        </div>
-        <div class="profile">
-          <a href="details.php"
-            ><img src="<?php echo $value [$_SESSION['user'] - 1] ['user_image']  ?>" alt=""
-          /></a> <!-- Added the required user image like this -->
-        </div><!-- profile -->
-        
-      </nav>
-    </header>
-    
-  <?php
-  
-        if($searchValue){ ?>
-          <?php foreach($value as $item){?>
-          
-          
-          <div class="slide-container swiper">
-            <div class="slide-content">
-              <div class="card-wrapper swiper-wrapper">
-                <div class="card swiper-slide">
-                  <div class="image-content">
-                    <span class="overlay"></span>
-                    
-                    
-                    <div class="card-image">
-                      <img src="1.jpg" alt="" class="card-img" />
-                    </div>
-                  </div>
-                  <div class="card-content">
-              <h2 class="name"><?php echo $item[0]['user_name'] ?></h2>
-              <p class="description">
-              <?php echo $item[0]['user_details'] ?>
-              </p>
-              <button class="button">View More</button>
-            </div>
-            
-          </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-        <?php 
-        $j += 1;
-        if($j>=$count){
-          break;
-        }
-        }}
-        
-        else{ 
-        }
-    ?>
-    <!-- profile -->
-    <?php
-        foreach ($value as $item){
-          // echo $item['user_id']."id <br>";
-          // echo $_SESSION['user'];
-          if($item['user_id'] == $_SESSION['user']){
-            continue;//skipp logger user bc we don't need to show message option for logged user 
-          }
+      <?php 
+       $stmt = $pdo->prepare("SELECT user_image FROM users WHERE user_id = :current_user");
+       // $stmt = $pdo->prepare("SELECT * FROM users");
+       $stmt -> bindParam(":current_user", $current_user);
+       $stmt -> execute();
+       $image = $stmt->fetch(PDO::FETCH_ASSOC);
       ?>
-    <div class="slide-container swiper">
-      <div class="slide-content">
-        <div class="card-wrapper swiper-wrapper">
-          <div class="card swiper-slide">
-            <div class="image-content">
-              <span class="overlay"></span>
+      <div class="profile">
+        <a href="details.php"
+            ><img src="<?php echo $image['user_image']  ?>" alt=""
+          /></a>
+      </div>
+    </header>
+<section>
+    
+    <div class="swiper mySwiper container">
+      <div class="swiper-wrapper content">
 
-              
-              <div class="card-image">
-                <img src="<?php echo $item['user_image']  ?>" alt="" class="card-img"/>
+<?php
+if (isset($_POST['search'])){
+
+  $name = strtolower($_POST['search']);
+  
+  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name");
+  $stmt->bindParam(':name', $name_like);
+  $name_like = '%' . $name . '%';
+  $stmt -> execute();
+  $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $totalUsers = $stmt->rowCount();
+}
+else{
+  
+  $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id != :current_user");
+  $stmt -> bindParam(":current_user", $current_user);
+  $stmt -> execute();
+  $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $totalUsers = $stmt->rowCount();
+}
+
+
+
+
+  for ($userCount = -1; $userCount < $totalUsers; $userCount++) {
+    ?>
+
+
+        <div class="swiper-slide card">
+          <div class="card-content">
+            <div class="image">
+            <img src="<?php echo $users [$userCount] ['user_image']  ?>" alt="" class="card-img"/>
+            </div>
+            </div>
+            <div class="name-bio-age-address">
+              <span class="name"><h2 class="name"><?php echo $users [$userCount] ['user_name']; ?></h2></span>
+              <span class="age"><?php echo $users [$userCount] ['user_id'];?></span>
+              <span class="age"><?php echo $users [$userCount] ['user_age'];?></span>
+              <span class="address"><?php echo $users [$userCount] ['user_address'];?></span>
+              <span class="bio"><p><?php echo $users [$userCount] ['user_details']; ?></p></span>
+              <div class="button">
+                <a href= "chat/chatmodule.php?toId=<?php echo $users [$userCount] ['user_id']; ?>"><button class="button" id="message_btn" >Message💬</button></a>
               </div>
             </div>
-            <div class="card-content">
-              <h2 class="name"><?php echo $item['user_name']; ?></h2>
-              <p class="description">
-              <?php echo $item['user_details']; ?>
-              </p>
-              <p id="TOuser_id"><?php echo $item['user_id'];?></p>
-
-              <!-- <button class="button" onclick="message()">Message💬</button> -->
-              <!-- <button class="button" id="msg_btn" name="msg_btn" onclick="message()" value="1">Message💬</button> -->
-              <a href= "./chat/chatmodule.php?toId=<?php echo $item['user_id'];?>"><button class="button" id="message_btn" >Message💬</button></a>
-            </div>
-            
-          </div>
-            </div>
-          </div>
-        </div>
+          </div>      
+  </div>     
+  </div>
+  </div>
+    <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination">
       </div>
+      <?php } ?>
+  </section>
 
-      <div class="swiper-button-next swiper-navBtn"></div>
-      <div class="swiper-button-prev swiper-navBtn"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <?php }?>
-    <script src = "./swiper.js"></script>
-    <script src = "./user.js"></script>
-  </body>
-  <!-- <script src="script.js">  </script> -->
-  
-</html>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script src="./swiper.js"></script>
+
+</body></html>
