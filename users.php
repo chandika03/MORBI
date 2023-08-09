@@ -267,10 +267,11 @@ section .card .image img {
       <nav class="navbar">
         <a href="#">Home</a>
         <a href="#">About us</a>
-          <form role="search" method="POST" action="">
-            <input type="search" name= "search" placeholder="Search">
-          </form>
-       <i class="fa-solid fa-magnifying-glass"></i>
+        <form role="search" method="POST" action="">
+          <input type="search" name= "search" placeholder="Search">
+        </form>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <a href="logout.php"><button class="logout-button">Log Out</button></a>
       </nav>
 
   <?php
@@ -300,18 +301,18 @@ section .card .image img {
       ?>
       <div class="profile">
         <a href="details.php"
-            ><img src="<?php echo $image['user_image']  ?>" alt=""
-          /></a>
+        ><img src="<?php echo $image['user_image']  ?>" alt=""
+        /></a>
       </div>
     </header>
-<section>
-    
-    <div class="swiper mySwiper container">
-      <div class="swiper-wrapper content">
-
-<?php
+    <section>
+      
+      <div class="swiper mySwiper container">
+        <div class="swiper-wrapper content">
+          
+          <?php
 if (isset($_POST['search'])){
-
+  
   $name = strtolower($_POST['search']);
   
   $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name AND user_id != :current_user");
@@ -341,11 +342,11 @@ else{
         <div class="swiper-slide card">
           <div class="card-content">
             <div class="image">
-            <img src="<?php echo $users [$userCount] ['user_image']  ?>" alt="" class="card-img"/>
+              <img src="<?php echo $users [$userCount] ['user_image']  ?>" alt="" class="card-img"/>
             </div>
-            </div>
-            <div class="name-bio-age-address">
-              <span class="name"><h2 class="name"><?php echo $users [$userCount] ['user_name']; ?></h2></span>
+          </div>
+          <div class="name-bio-age-address">
+            <span class="name"><h2 class="name"><?php echo $users [$userCount] ['user_name']; ?></h2></span>
               <span class="age"><?php echo $users [$userCount] ['user_id'];?></span>
               <span class="age"><?php echo $users [$userCount] ['user_age'];?></span>
               <span class="address"><?php echo $users [$userCount] ['user_address'];?></span>
@@ -355,19 +356,20 @@ else{
               </div>
             </div>
           </div>      
-  </div>     
-  </div>
-  </div>
+        </div>     
+      </div>
+    </div>
     <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination">
       </div>
       <?php } ?>
+      
   </section>
-
+  
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+  
   <script src="./swiper.js"></script>
 
 </body></html>
