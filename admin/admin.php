@@ -1,4 +1,12 @@
-
+<?php
+  //search
+  session_start();
+  echo $_SESSION['id'];
+  
+  if(!isset($_SESSION['id'])){
+    header("Location: /morbi/admin/adminlogin.php");
+    exit();
+  }?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +63,8 @@ $reportedProfiles = $statement->fetchAll(PDO::FETCH_ASSOC);
     <th>Reason</th>
     <th>Action</th>
   </tr>
-  <?php foreach ($reportedProfiles as $reportedProfile): ?>
+  <?php
+  foreach ($reportedProfiles as $reportedProfile): ?>
     <tr>
       <td><?php echo $reportedProfile['reported_user_name']; ?></td>
       <td><?php echo $reportedProfile['reporting_user_name']; ?></td>
@@ -63,6 +72,7 @@ $reportedProfiles = $statement->fetchAll(PDO::FETCH_ASSOC);
       <td><a href="delete.php?id=<?php echo $reportedProfile['userid']; ?>">Delete</a></td>
     </tr>
   <?php endforeach; ?>
+  
 </table>
 </body>
 </html>

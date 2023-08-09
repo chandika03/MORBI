@@ -305,9 +305,7 @@
                 <a href="#" class="register-link">Sign Up</a>
               </div>
             </form>
-            <form action="adminlogin.php" method="POST">
-              <button type="submit" class="btn">Login as Admin</button>
-            </form>
+              <a href="admin/adminlogin.php"><button type="submit" class="btn">Login as Admin</button></a>
           </div>
 
           <!-- Sign In form -->

@@ -128,7 +128,7 @@
             <h2>Login as Admin</h2>
             <p>Please login to use the platform</p>
         </div>
-        <form action="logindb.php" method="post" id="myform">
+        <form action="adminlogindb.php" method="POST" id="myform">
             <div class="input-box">
                 <span class="icon"><i class="bx bxs-user"></i></span>
                 <input type="text" name="email" required />
@@ -143,7 +143,7 @@
         </form>
     </div>
     <div class="back-button">
-        <a href="morbi.php">⬅Back</a>
+        <a href="adminlogin.php">⬅Back</a>
       </div>
     </div>
 </body>
