@@ -2,7 +2,6 @@
 include('dbconn.php');
   //search
   session_start();
-  echo $_SESSION['user'];
   
   if(!isset($_SESSION['user'])){
     header("Location: /morbi/morbi.php");
@@ -67,8 +66,12 @@ body {
 .navbar{
   width: 50%;
   display: flex;
+  justify-content: space-around;
+  margin: auto;
 }
-
+.navbar form{
+  margin-left: 15rem;
+}
 .navbar a {
   font-size: 18px;
   color: #fff;
@@ -388,7 +391,6 @@ else{
           </div>
           <div class="name-bio-age-address">
             <span class="name"><h2 class="name"><?php echo $users [$userCount] ['user_name']; ?></h2></span>
-              <span class="age"><?php echo $users [$userCount] ['user_id'];?></span>
               <span class="age"><?php echo $users [$userCount] ['user_age'];?></span>
               <span class="address"><?php echo $users [$userCount] ['user_address'];?></span>
               <span class="bio"><p><?php echo $users [$userCount] ['user_details']; ?></p></span>
