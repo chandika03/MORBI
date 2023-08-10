@@ -13,7 +13,7 @@
     foreach($value as $item){
        if($email == $item['email'] && $password == $item['password']){
         $_SESSION['id'] = $item['id'];
-        header("location: admin.php");
+        header("location: adminhome.php");
        }
        else{
            $value = "Invalid cred!!";
