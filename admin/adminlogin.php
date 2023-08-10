@@ -6,7 +6,7 @@
     <title>Login</title>
     <style>
         body {
-            background-color: ##fff;
+            background-color: #fff;
             color: #9a208c;
             font-family: Arial, sans-serif;
             display: flex;
