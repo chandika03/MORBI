@@ -8,26 +8,29 @@ include('dbconn.php');
     header("Location: /morbi/morbi.php");
     exit();
   }
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  ?>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
-    <!-- Fontawesome CDN Link -->
+      <!-- Link Swiper's CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+      
+      <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
         
     <!-- CSS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" async></script>
+    
+    <script src="./swiper.js" async></script>
     <!-- <link rel="stylesheet" href="user.css"> -->
     <style>
-/* === Google Font Import - Poppins === */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
+      /* === Google Font Import - Poppins === */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      
+      * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -61,9 +64,10 @@ body {
   text-decoration: none;
   font-weight: 700;
 }
-/* .navbar{
+.navbar{
   width: 50%;
-} */
+  display: flex;
+}
 
 .navbar a {
   font-size: 18px;
@@ -82,15 +86,15 @@ section {
 }
 
 .swiper {
-  width: 1000px;
+  width: 950px;
 }
 
 .card {
   position: relative;
   background: #fff;
   border-radius: 20px;
-  height: 500px;
-  width: 200px;
+  height: 450px;
+  width: 450px;
   margin: 20px 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -98,7 +102,6 @@ section {
 .card::before {
   content: "";
   position: absolute;
-  
   height: 40%;
   width: 100%;
   background: #ffeaea;
@@ -151,7 +154,7 @@ section .card .image img {
 }
 
 .card .media-icons i:hover {
-  opacity: 2;
+  opacity: 1;
 }
 
 .card .name-bio-age-address{
@@ -188,6 +191,7 @@ section .card .image img {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+  
 }
 
 .card .button button {
@@ -204,6 +208,7 @@ section .card .image img {
 
 .button button:hover {
   background: #e11299; 
+
 }
 
 .swiper-pagination {
@@ -212,7 +217,6 @@ section .card .image img {
 }
 
 .swiper-pagination-bullet {
-    
   height: 7px;
   width: 26px;
   border-radius: 25px;
@@ -233,6 +237,7 @@ section .card .image img {
   opacity: 1;
   color: white;
 }
+
 .header input{
   width: 10rem;
   height: 2rem;
@@ -260,6 +265,27 @@ section .card .image img {
   background-size: cover;
   border-radius: 50%;
 }
+.profile i{
+  color: #fff;
+  
+  position: relative;
+  left: 3.5rem;
+  top: -1rem;
+  width: 2rem;
+}
+.drop{
+  text-align: center;
+  width: 10rem;
+  position: relative;
+  display: none;
+  border: 1px solid black;
+  left: -3rem;
+  margin-top: 0.5rem;
+  background-color: #fff;
+}
+.drop p{
+  border-bottom: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -270,9 +296,9 @@ section .card .image img {
         <a href="#">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
         </form>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <a href="logout.php"><button class="logout-button">Log Out</button></a>
+       
       </nav>
 
   <?php
@@ -301,9 +327,13 @@ section .card .image img {
        $image = $stmt->fetch(PDO::FETCH_ASSOC);
       ?>
       <div class="profile">
-        <a href="details.php"
-        ><img src="<?php echo $image['user_image']  ?>" alt=""
-        /></a>
+        <img src="<?php echo $image['user_image']  ?>" alt=""/>
+        <i class="fa-solid fa-caret-down drop-icon"></i>
+        <div class="drop">
+          <p>Update</p>
+          <p> <a href="logout.php"><button class="logout-button">Log Out</button></a></p>
+          <p>Message💬</p>
+        </div>
       </div>
     </header>
     <section>
@@ -348,9 +378,9 @@ else{
         <div class="swiper-slide card">
           <div class="card-content">
           <div class="media-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-instagram"></i>
+              <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a> 
+              <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="image">
               <img src="<?php echo $users [$userCount] ['user_image']  ?>" alt="" class="card-img"/>
@@ -379,8 +409,5 @@ else{
   </section>
   
   <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
-  <script src="./swiper.js"></script>
 
 </body></html>
