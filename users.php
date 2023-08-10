@@ -22,7 +22,7 @@ include('dbconn.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
         
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="user.css"> -->
     <style>
 /* === Google Font Import - Poppins === */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -89,7 +89,8 @@ section {
   position: relative;
   background: #fff;
   border-radius: 20px;
-  height: 400px;
+  height: 500px;
+  width: 200px;
   margin: 20px 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -100,7 +101,7 @@ section {
   
   height: 40%;
   width: 100%;
-  background: #ffeaea; /* Updated color */
+  background: #ffeaea;
   color: black;
   border-radius: 20px 20px 0 0;
 }
@@ -309,8 +310,10 @@ section .card .image img {
       
       <div class="swiper mySwiper container">
         <div class="swiper-wrapper content">
-          
+       
+
           <?php
+        
 if (isset($_POST['search'])){
   
   $name = strtolower($_POST['search']);
@@ -336,11 +339,19 @@ else{
 
 
   for ($userCount = -1; $userCount < $totalUsers; $userCount++) {
+    if($userCount == -1){
+      continue;
+    }
     ?>
 
 
         <div class="swiper-slide card">
           <div class="card-content">
+          <div class="media-icons">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+            </div>
             <div class="image">
               <img src="<?php echo $users [$userCount] ['user_image']  ?>" alt="" class="card-img"/>
             </div>
