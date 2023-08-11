@@ -270,33 +270,42 @@ section .card .image img {
 }
 .profile i{
   color: #fff;
-  
   position: relative;
-  left: 3.5rem;
-  top: -1rem;
+  left: 3.3em;
+  top: -1.7rem;
   width: 2rem;
 }
-.drop{
+.drop {
   text-align: center;
   width: 10rem;
   position: relative;
-  display: none;
-  border: 1px solid black;
+  border: 1px solid #fff;
   left: -3rem;
-  margin-top: 0.5rem;
-  background-color: #fff;
+  margin-top: 0.2rem;
+  background-color:transparent;
+  border-radius: 3%;
+  display: none;
 }
-.drop p{
-  border-bottom: 1px solid black;
+
+.drop p {
+  border-bottom: none; 
+  color: #9a208c; 
+  padding: 0.5rem 0; 
+  font-size: 15px;
+  font-weight: 500;
 }
+.drop p a{
+  text-decoration: none;
+}
+
 </style>
 </head>
 <body>
 <header class="header">
       <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About us</a>
+        <a href="morbi.php">Home</a>
+        <a href="./templates/more.html">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -333,9 +342,9 @@ section .card .image img {
         <img src="<?php echo $image['user_image']  ?>" alt=""/>
         <i class="fa-solid fa-caret-down drop-icon"></i>
         <div class="drop">
-          <p>Update</p>
-          <p> <a href="logout.php"><button class="logout-button">Log Out</button></a></p>
-          <p>Message💬</p>
+          <p> <a href="details.php">Update</a></p>
+          <p> <a href="logout.php">Log Out</a></p>
+          <p> <a href="chat/chatmodule.php">Message</a></p>
         </div>
       </div>
     </header>
