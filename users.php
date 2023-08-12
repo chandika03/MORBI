@@ -194,7 +194,11 @@ section .card .image img {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+ 
   
+}
+.card .button a{
+  text-decoration: none;
 }
 
 .card .button button {
@@ -209,6 +213,7 @@ section .card .image img {
   cursor: pointer;
   
 }
+
 .card .button button a{
   text-decoration: none;
 }
