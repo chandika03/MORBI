@@ -207,6 +207,10 @@ section .card .image img {
   font-size: 14px;
   transition: all 0.3s ease;
   cursor: pointer;
+  
+}
+.card .button button a{
+  text-decoration: none;
 }
 
 .button button:hover {
@@ -344,7 +348,7 @@ section .card .image img {
         <div class="drop">
           <p> <a href="details.php">Update</a></p>
           <p> <a href="logout.php">Log Out</a></p>
-          <p> <a href="chat/chatmodule.php">Message</a></p>
+          <p> <a href="message_history.php">Message</a></p>
         </div>
       </div>
     </header>
