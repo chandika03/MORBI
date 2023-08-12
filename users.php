@@ -29,13 +29,12 @@ include('dbconn.php');
       /* === Google Font Import - Poppins === */
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
       
-      * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
 body {
   height: 100vh;
   display: flex;
@@ -43,6 +42,8 @@ body {
   justify-content: center;
   background: #ffeaea;
 }
+
+
 /* nav */
 .header {
   position: fixed;
@@ -76,7 +77,7 @@ body {
   font-size: 18px;
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 500px;
   margin-right: 40px;
 }
 
@@ -124,7 +125,7 @@ section {
 section .card .image {
   height: 140px;
   width: 140px;
-  border-radius: 20%;
+  border-radius: 50%;
   padding: 3px;
   background: #9a208c; 
   margin-top: 30px;
@@ -134,16 +135,16 @@ section .card .image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 20%;
+  border-radius: 50%;
   border: 3px solid #fff;
 }
 
 .card .media-icons {
   position: absolute;
-  top: 12px;
-  right: 95px;
+  top: 10px;
+  right: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -207,7 +208,7 @@ section .card .image img {
   border: none;
   color: #fff;
   padding: 8px 22px;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 14px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -223,16 +224,17 @@ section .card .image img {
 
 }
 
-.swiper-pagination {
-  position: absolute;
-  top: 470px;
+.swiper-slide{
+  margin: 0 15px;
 }
 
-.swiper-pagination-bullet {
-  height: 7px;
-  width: 26px;
-  border-radius: 25px;
-  background: white;
+.swiper-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden; 
+
 }
 
 .swiper-button-next,
@@ -427,7 +429,5 @@ else{
       <?php } ?>
       
   </section>
-  
-  <!-- Swiper JS -->
-
+ 
 </body></html>
