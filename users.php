@@ -373,7 +373,7 @@ if (isset($_POST['search'])){
   
   $name = strtolower($_POST['search']);
   
-  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name AND user_id != :current_user");
+  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name OR  lower(user_age) LIKE :name OR  lower(user_gender) LIKE :name OR  lower(user_address) LIKE :name AND user_id != :current_user");
   $stmt->bindParam(':name', $name_like);
   $stmt -> bindParam(":current_user", $current_user);
   $name_like = '%' . $name . '%';
@@ -424,10 +424,10 @@ else{
         </div>     
       </div>
     </div>
-    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination">
-      </div>
+      </div> -->
       <?php } ?>
       
   </section>
