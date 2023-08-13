@@ -22,6 +22,7 @@ const dropIcon = document.querySelector(".drop-icon");
 dropBtn.addEventListener("click", () => {
   if (dropContent.style.display === "none") dropContent.style.display = "block";
   else dropContent.style.display = "none";
+  console.log("drop");
 });
 // dropIcon.addEventListener("click", () => {
 //   dropContent.style.display = "none";

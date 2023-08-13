@@ -21,9 +21,7 @@ include('dbconn.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
         
     <!-- CSS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" async></script>
-    
-    <script src="./swiper.js" async></script>
+  
     <!-- <link rel="stylesheet" href="user.css"> -->
     <style>
       /* === Google Font Import - Poppins === */
@@ -311,6 +309,7 @@ section .card .image img {
 
 </style>
 </head>
+
 <body>
 <header class="header">
       <a href="#" class="logo">MORBI</a>
@@ -429,5 +428,7 @@ else{
       <?php } ?>
       
   </section>
- 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <script src="./swiper.js"></script>
 </body></html>
