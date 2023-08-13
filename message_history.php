@@ -9,11 +9,26 @@
 
   $user_id = $_SESSION['user'];
 
-  $query = "SELECT * FROM message WHERE fromuser = :userid";
-  $stmt = $pdo->prepare($query);
-  $stmt -> bindParam(':userid',$user_id);
-  $stmt -> execute();
-  $value = $stmt->fetchAll(PDO::FETCH_ASSOC);   
+  // $query = "SELECT * FROM message WHERE fromuser = :userid";
+  //   $query = "SELECT m.message, m.toUser, m.timestamp, u_from.user_image AS from_user_image, u_to.user_image AS to_user_image
+  //           FROM message m
+  //           JOIN users u_from ON m.fromUser = u_from.user_id
+  //           JOIN users u_to ON m.toUser = u_to.user_id
+  //           WHERE u_from.user_id = :userid OR u_to.user_id = :userid";
+
+  // $stmt = $pdo->prepare($query);
+  // $stmt->bindParam(':userid', $user_id);
+  // $stmt->execute();
+  // $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+  $query = "SELECT m.message,m.toUser,u_to.user_name AS receiver_name, u_to.user_image AS receiver_image, m.timestamp FROM message m JOIN users u_to ON m.toUser = u_to.user_id
+    ";
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,6 +119,9 @@
       .back-link:hover {
         color: #e11299;
       }
+      .img-class{
+        width:100px;
+      }
     </style>
   </head>
   <body>
@@ -112,6 +130,8 @@
       <table class="chat-table">
         <thead>
           <tr>
+
+            <th>Image</th>
             <th>Sender</th>
             <th>Message</th>
             <th>Time</th>
@@ -119,14 +139,20 @@
         </thead>
         <tbody>
           <?php
-          
-          foreach($value as $item){ 
+          foreach($messages as $message){ 
             ?>
-          <tr>
-            <td class="user-avatar" data-avatar="👤"><?php echo $item['toUser'] ?></td>
-            <td><?php echo $item['message'] ?></td>
-            <td><?php echo $item['timestamp'] ?></td>
+          <a href="#">
+            <tr>
+            <td class="user-avatar"><img class="img-class" src="<?php echo $message['receiver_image']  ?>" alt=""/></td>
+            <!-- <td class="user-avatar" data-avatar="👤"><?php //echo $item['user_image'] ?></td> -->
+            <td><?php echo "<a href='chat/chatmodule.php?toId=" . $message['toUser'] . "'>" . $message['receiver_name'] ?></td>
+            <td><?php echo $message['message'] ?></td>
+            <td><?php echo $message['timestamp'] ?></td>
+            <!-- <a href="chat/chatmodule.php?toId=<?php echo $message['toUser']; ?>">
+              <button class="button" id="message_btn">Message💬</button>      
+            </a> -->
           </tr>
+        </a>
           <?php } ?>
         </tbody>
       </table>
