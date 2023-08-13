@@ -99,6 +99,8 @@
   ?>
 </div>
 
+
+
             <div class="chat-input">
                 <div class="input-data">
                   <form action='message.php?toId=<?php echo $toUser;?>' method="post">
@@ -109,6 +111,7 @@
             </div>
           </div>
         </div>
+      
         
   </div>
     <script>
@@ -183,5 +186,6 @@
         //     });
         // });
     </script>
+    
 </body>
 </html>
