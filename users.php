@@ -287,13 +287,16 @@ section .card .image img {
   position: relative;
   border: 1px solid #fff;
   left: -3rem;
-  margin-top: 0.2rem;
-  background-color:transparent;
+  top: -1rem;
+  /* margin-top: 0.2rem; */
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px;
   border-radius: 3%;
   display: none;
 }
 
 .drop p {
+  height: 2rem;
   border-bottom: none; 
   color: #9a208c; 
   padding: 0.5rem 0; 
