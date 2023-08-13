@@ -114,7 +114,7 @@ section {
   align-items: center;
   padding: 30px;
   position: relative;
-  z-index: 100;
+  
 }
 
 section .card .image {
@@ -293,6 +293,7 @@ section .card .image img {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px;
   border-radius: 3%;
   display: none;
+  z-index: 1000;
 }
 
 .drop p {
@@ -353,8 +354,8 @@ section .card .image img {
         <i class="fa-solid fa-caret-down drop-icon"></i>
         <div class="drop">
           <p> <a href="details.php">Update</a></p>
-          <p> <a href="logout.php">Log Out</a></p>
           <p> <a href="message_history.php">Message</a></p>
+          <p> <a href="logout.php">Log Out</a></p>
         </div>
       </div>
     </header>
