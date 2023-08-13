@@ -88,11 +88,11 @@
                           echo "";
                         }
                         else{
-                          // foreach($reply_info as $reply){
+                          foreach($reply_info as $reply){
                             ?>
-                             <textarea name="textarea" id="textarea" rows="10" cols="50" required=""> <?php echo $reply_info[0]['message'];?> </textarea>
+                         <?php echo $reply_info[0]['message'];?>
                          <?php }
-                        // }
+                         }
                       ?>
                     </div>
                 </div>
