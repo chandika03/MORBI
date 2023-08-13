@@ -90,7 +90,15 @@
                     </div>
                 </div>
             </div>
-            <div class="chat-messages"> </div>
+            <!-- <div class="chat-messages"> </div> -->
+            <div class="chat-messages">
+  <?php
+  foreach ($reply_info as $reply) {
+    echo '<div class="message">' . $reply['message'] . '</div>';
+  }
+  ?>
+</div>
+
             <div class="chat-input">
                 <div class="input-data">
                   <form action='message.php?toId=<?php echo $toUser;?>' method="post">
@@ -104,9 +112,54 @@
         
   </div>
     <script>
-      setTimeout(function() {
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatMessages = document.querySelector('.chat-messages');
+
+    function fetchMessages() {
+      fetch(`get_messages.php?fromUser=<?php echo $fromUser; ?>&toUser=<?php echo $toUser; ?>`)
+        .then(response => response.text())
+        .then(result => {
+          chatMessages.innerHTML = result;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        })
+        .catch(error => {
+          console.error('Error fetching messages:', error);
+        });
+    }
+
+    function sendMessage(message) {
+      fetch(`send_message.php?fromUser=<?php echo $fromUser; ?>&toUser=<?php echo $toUser; ?>`, {
+        method: 'POST',
+        body: JSON.stringify({ message: message }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(fetchMessages)
+        .catch(error => {
+          console.error('Error sending message:', error);
+        });
+    }
+
+    const sendButton = document.getElementById('send-button');
+    const dataInput = document.getElementById('data');
+
+    sendButton.addEventListener('click', () => {
+      const message = dataInput.value.trim();
+      if (message !== '') {
+        sendMessage(message);
+        dataInput.value = '';
+      }
+    });
+
+    // Initial loading of messages
+    fetchMessages();
+  });
+
+     setTimeout(function() {
   location.reload(); // Reload the page
-}, 9000); // 9000 milliseconds = 9 seconds
+}, 10000); // 10000 milliseconds = 10 seconds
 
         // $(document).ready(function(){
         //     $("#send-btn").on("click", function(){

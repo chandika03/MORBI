@@ -1,7 +1,7 @@
 <?php
   //search
   session_start();
-  echo $_SESSION['id'];
+  // echo $_SESSION['id'];
   
   if(!isset($_SESSION['id'])){
     header("Location: /morbi/admin/adminlogin.php");
@@ -26,11 +26,11 @@
 
     th, td {
       padding: 10px;
-      border: 1px solid #e11299;
+      border: 1px solid #9a208c;
     }
 
     th {
-      background-color: #e11299;
+      background-color: #9a208c;
       color: #fff;
     }
 
@@ -77,5 +77,6 @@ $profiles = $statement->fetchAll(PDO::FETCH_ASSOC);
   <?php endforeach; ?>
   
 </table>
+<a href="../admin/adminhome.php">Back</a>
 </body>
 </html>
