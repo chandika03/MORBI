@@ -60,13 +60,19 @@
           <ul class="sidebar-menu">
             <li class="active">Chats</li>
           </ul>
-          <footer> 
-          <button>
-            <a href="../report/report.php?userId=<?php echo $toUser ?>">Report</a>
+          
+            <div class="report">
+            <button>
+            <a href="../report/report.php?userId=<?php echo $toUser ?>">Report the user</a>
         </button>
-        <button>
-            <a href="../users.php">Go Back</a>
+            </div>
+          
+        <div class="back">
+        <button >
+            <a href="../users.php">⬅ Go Back</a>
         </button>
+        </div>
+        
 </footer>
     </div>
         <div class="chat">
@@ -83,8 +89,9 @@
                         }
                         else{
                           // foreach($reply_info as $reply){
-                            echo $reply_info[0]['message'];
-                          }
+                            ?>
+                             <textarea name="textarea" id="textarea" rows="10" cols="50" required=""> <?php echo $reply_info[0]['message'];?> </textarea>
+                         <?php }
                         // }
                       ?>
                     </div>
