@@ -1,4 +1,4 @@
-var swiper = new swiper(".mySwiper", {
+var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 30,
   slidesPerGroup: 3,
@@ -22,7 +22,7 @@ const dropIcon = document.querySelector(".drop-icon");
 dropBtn.addEventListener("click", () => {
   if (dropContent.style.display === "none") dropContent.style.display = "block";
   else dropContent.style.display = "none";
-  console.log("drop");
+  //   console.log("drop");
 });
 // dropIcon.addEventListener("click", () => {
 //   dropContent.style.display = "none";
