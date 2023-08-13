@@ -73,7 +73,7 @@ body {
 }
 input {
   padding: 7px;
-  width: 450px;
+  width: 550px;
 }
 
 #message-input {
@@ -91,10 +91,13 @@ input {
 
 /* Message styles */
 .message {
-  padding: 5px 10px;
+  padding: 10px 10px;
   margin-bottom: 5px;
   border-radius: 5px;
   font-size: 14px;
+  background-color: #fff;
+  max-width: 300px;
+  overflow: hidden;
 }
 
 .sent {
@@ -102,8 +105,42 @@ input {
   align-self: flex-end;
 }
 
-/* .received {
-    background-color: #e11299;
-    color: #fff;
-    align-self: flex-start;
-  } */
+button {
+  background-color: #9a208c;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #e11299;
+}
+
+/* Button container styles */
+.report,
+.back {
+  margin-top: 20px;
+}
+
+.report button {
+  background-color: #9a208c;
+}
+
+.report button:hover {
+  background-color: #e11299;
+}
+
+.back button {
+  background-color: #9a208c;
+}
+
+.back button:hover {
+  background-color: #e11299;
+}
