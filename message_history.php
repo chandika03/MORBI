@@ -121,7 +121,6 @@
           <?php
           
           foreach($value as $item){ 
-            var_dump($item); 
             ?>
           <tr>
             <td class="user-avatar" data-avatar="👤"><?php echo $item['toUser'] ?></td>
