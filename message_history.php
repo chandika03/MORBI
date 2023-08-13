@@ -1,3 +1,20 @@
+<?php
+  include('dbconn.php');
+  session_start();
+
+  if(!isset($_SESSION['user'])){
+    header("Location: /morbi/morbi.php");
+    exit();
+  }
+
+  $user_id = $_SESSION['user'];
+
+  $query = "SELECT * FROM message WHERE fromuser = :userid";
+  $stmt = $pdo->prepare($query);
+  $stmt -> bindParam(':userid',$user_id);
+  $stmt -> execute();
+  $value = $stmt->fetchAll(PDO::FETCH_ASSOC);   
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,21 +118,17 @@
           </tr>
         </thead>
         <tbody>
+          <?php
+          
+          foreach($value as $item){ 
+            var_dump($item); 
+            ?>
           <tr>
-            <td class="user-avatar" data-avatar="👤">User 1</td>
-            <td>Hello there! How's it going?</td>
-            <td>10:30 AM</td>
+            <td class="user-avatar" data-avatar="👤"><?php echo $item['toUser'] ?></td>
+            <td><?php echo $item['message'] ?></td>
+            <td><?php echo $item['timestamp'] ?></td>
           </tr>
-          <tr>
-            <td class="user-avatar" data-avatar="👤">User 2</td>
-            <td>Everything is going well, thanks for asking!</td>
-            <td>10:32 AM</td>
-          </tr>
-          <tr>
-            <td class="user-avatar" data-avatar="👤">User 1</td>
-            <td>Great! Let's catch up later.</td>
-            <td>10:35 AM</td>
-          </tr>
+          <?php } ?>
         </tbody>
       </table>
       <div class="back-button">
