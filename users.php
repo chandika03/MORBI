@@ -316,7 +316,7 @@ section .card .image img {
       <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
         <a href="morbi.php">Home</a>
-        <a href="./templates/more.html">About us</a>
+        <a href="users_about_us.php">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -394,7 +394,7 @@ else{
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  echo "ëlse yoyo";
+  echo "lala";
 }
 
 
