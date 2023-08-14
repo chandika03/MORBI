@@ -88,11 +88,11 @@
                           echo "";
                         }
                         else{
-                          // foreach($reply_info as $reply){
+                          foreach($reply_info as $reply){
                             ?>
                             <!-- echo <?php echo $reply_info[0]['message'];?> -->
                          <?php }
-                        // }
+                         }
                       ?>
                     </div>
                 </div>
