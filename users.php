@@ -232,7 +232,7 @@ section .card .image img {
 
 }
 
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
 
   opacity: 0.7;
@@ -245,7 +245,7 @@ section .card .image img {
 .swiper-button-prev:hover {
   opacity: 1;
   color: white;
-}
+} */
 
 .header input{
   width: 10rem;
@@ -316,7 +316,7 @@ section .card .image img {
       <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
         <a href="morbi.php">Home</a>
-        <a href="./templates/more.html">About us</a>
+        <a href="./templates/more1.html">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -421,7 +421,7 @@ else{
           <div class="name-bio-age-address">
             <span class="name"><h2 class="name"><?php echo $users [$userCount] ['user_name']; ?></h2></span>
               <span class="age"><?php echo $users [$userCount] ['user_age'];?></span>
-              <span class="address"><?php echo $users [$userCount] ['user_address'];?></span>
+              <span class="address">📍<?php echo $users [$userCount] ['user_address'];?></span>
               <span class="bio"><p><?php echo $users [$userCount] ['user_details']; ?></p></span>
               <div class="button">
                 <a href= "chat/chatmodule.php?toId=<?php echo $users [$userCount] ['user_id']; ?>"><button class="button" id="message_btn" >Message💬</button></a>

@@ -293,13 +293,8 @@
               </div>
               
 
-              <!-- <div class="remember-forgot">
-                <label><input type="checkbox" />Remember me </label>
-                <a href="#"> Forgot Password?</a>
-              </div> -->
 
               <button type="submit" class="btn" id="login-btn">Login</button>
-              <!-- <input type="submit"/> -->
 
               <div class="logreg-link">
                 <p>Don't have an account?</p>
@@ -324,21 +319,21 @@
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-envelope"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-envelope"></i> </span> -->
                 <input type="email" name="email" id="email" required />
                 <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-lock-alt"></i> </span> -->
                 <input type="password" name="password" id="password" required />
                 <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-lock-alt"></i> </span> -->
                 <input
                   type="password"
                   name="cpassword"
@@ -353,8 +348,7 @@
               <div class="logreg-link">
                 <p>
                   Already have an account?<a href="#" class="login-link"
-                    >Login</a
-                  >
+                    >Login</a>
                 </p>
               </div>
             </form>
@@ -362,6 +356,7 @@
         </div>
       </div>
     </section>
+
     <!-- About us -->
     <div class="about-us" id="aboutus">
       <div
@@ -428,7 +423,7 @@
           <div class="wp-block-buttons is-layout-flex">
             <div class="wp-block-button is-style-premium">
               <a
-                class="wp-block-button__link wp-element-button"
+                class="wp-block-button__link wp-element-button join-btn"
                 href="#"
                 >Join now</a
               >
@@ -456,6 +451,8 @@
     </div>
     <script src="./script.js"></script>
     <script src="validate.js"></script>
+    <script>alert("Incorrect username or password.");</script>
+    
   </body>
   <footer class="footer">
     <div class="container">

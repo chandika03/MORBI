@@ -59,6 +59,7 @@ $messages = $statement->fetchAll(PDO::FETCH_ASSOC);
 
       .chat-container {
         text-align: center;
+        margin-top: 120%;
       }
 
       .chat-heading {
@@ -115,8 +116,8 @@ $messages = $statement->fetchAll(PDO::FETCH_ASSOC);
 
       .back-button {
         margin-top: 20px;
-        margin-left: 23rem;
-      }
+        margin-left: 70%;
+      margin-bottom: 23px;      }
 
       .back-link {
         color: #9a208c;
