@@ -292,13 +292,8 @@
                 <label>Password</label>
               </div>
 
-              <!-- <div class="remember-forgot">
-                <label><input type="checkbox" />Remember me </label>
-                <a href="#"> Forgot Password?</a>
-              </div> -->
 
               <button type="submit" class="btn" id="login-btn">Login</button>
-              <!-- <input type="submit"/> -->
 
               <div class="logreg-link">
                 <p>Don't have an account?</p>
@@ -360,6 +355,7 @@
         </div>
       </div>
     </section>
+
     <!-- About us -->
     <div class="about-us" id="aboutus">
       <div
@@ -454,6 +450,8 @@
     </div>
     <script src="./script.js"></script>
     <script src="validate.js"></script>
+    <script>alert("Incorrect username or password.");</script>
+    
   </body>
   <footer class="footer">
     <div class="container">
@@ -470,16 +468,16 @@
           <h4>follow us</h4>
           <div class="social-links">
             <a href="https://www.facebook.com" target="_blank">
-              <!-- <i class="fab fa-facebook"></i> -->
+              <i class="fab fa-facebook"></i>
             </a>
             <a href="https://www.twitter.com" target="_blank">
-              <!-- <i class="fab fa-twitter"></i> -->
+              <i class="fab fa-twitter"></i>
             </a>
             <a href="https://www.instagram.com" target="_blank">
-              <!-- <i class="fab fa-instagram"></i> -->
+              <i class="fab fa-instagram"></i>
             </a>
             <a href="https://www.youtube.com" target="_blank">
-              <!-- <i class="fab fa-youtube"></i> -->
+              <i class="fab fa-youtube"></i>
             </a>
           </div>
         </div>

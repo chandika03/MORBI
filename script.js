@@ -26,7 +26,7 @@ iconClose.onclick = () => {
 };
 
 iconClose.addEventListener("click", () => {
-  console.log("removed");
+  // console.log("removed");
   wrapper.classList.remove("active-popup");
   wrapper.classList.remove("active");
 });
