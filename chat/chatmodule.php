@@ -90,7 +90,7 @@
                         else{
                           foreach($reply_info as $reply){
                             ?>
-                         <?php echo $reply_info[0]['message'];?>
+                            <!-- echo <?php echo $reply_info[0]['message'];?> -->
                          <?php }
                          }
                       ?>

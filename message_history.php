@@ -22,12 +22,21 @@
   // $value = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-  $query = "SELECT m.message,m.toUser,u_to.user_name AS receiver_name, u_to.user_image AS receiver_image, m.timestamp FROM message m JOIN users u_to ON m.toUser = u_to.user_id
-    ";
+  // $query = "SELECT m.message,m.toUser,u_to.user_name AS receiver_name, u_to.user_image AS receiver_image, m.timestamp FROM message m JOIN users u_to ON m.toUser = u_to.user_id";
+  $query = "SELECT m.message, m.toUser, u_to.user_name AS receiver_name, u_to.user_image AS receiver_image, m.timestamp
+  FROM (
+      SELECT toUser, MAX(timestamp) AS latest_timestamp
+      FROM message
+      GROUP BY toUser
+  ) latest_msg
+  JOIN message m ON latest_msg.toUser = m.toUser AND latest_msg.latest_timestamp = m.timestamp
+  JOIN users u_to ON m.toUser = u_to.user_id;
+  
+  )";
 
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$statement = $pdo->prepare($query);
+$statement->execute();
+$messages = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
