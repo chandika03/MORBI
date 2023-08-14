@@ -316,7 +316,7 @@ section .card .image img {
       <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
         <a href="morbi.php">Home</a>
-        <a href="./templates/more.html">About us</a>
+        <a href="./templates/more1.html">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
