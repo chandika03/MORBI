@@ -291,6 +291,7 @@
                 <input type="password" name="password" required />
                 <label>Password</label>
               </div>
+              
 
               <!-- <div class="remember-forgot">
                 <label><input type="checkbox" />Remember me </label>
@@ -487,4 +488,8 @@
       </div>
     </div>
   </footer>
+  <?php if(isset($_GET['invalid'])){
+                echo "<script>alert('Invalid credentials');</script>";
+              }
+              ?>
 </html>
