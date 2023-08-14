@@ -85,7 +85,7 @@
                     <div class="reply">
                       <?php 
                         if(empty($reply_info)){
-                          echo "";
+                          // echo "";
                         }
                         else{
                           foreach($reply_info as $reply){
@@ -101,7 +101,7 @@
             <div class="chat-messages">
   <?php
   foreach ($reply_info as $reply) {
-    echo '<div class="message">' . $reply['message'] . '</div>';
+    echo '<div class="message">' . $reply['message'] .'</div>';
   }
   ?>
 </div>

@@ -323,21 +323,21 @@
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-envelope"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-envelope"></i> </span> -->
                 <input type="email" name="email" id="email" required />
                 <div class="error-message" id="email-error"></div>
                 <label>Email Address</label>
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-lock-alt"></i> </span> -->
                 <input type="password" name="password" id="password" required />
                 <div class="error-message" id="password-error"></div>
                 <label>Password</label>
               </div>
 
               <div class="input-box">
-                <span class="icon"><i class="bx bxs-lock-alt"></i> </span>
+                <!-- <span class="icon"><i class="bx bxs-lock-alt"></i> </span> -->
                 <input
                   type="password"
                   name="cpassword"
@@ -352,8 +352,7 @@
               <div class="logreg-link">
                 <p>
                   Already have an account?<a href="#" class="login-link"
-                    >Login</a
-                  >
+                    >Login</a>
                 </p>
               </div>
             </form>
@@ -427,7 +426,7 @@
           <div class="wp-block-buttons is-layout-flex">
             <div class="wp-block-button is-style-premium">
               <a
-                class="wp-block-button__link wp-element-button"
+                class="wp-block-button__link wp-element-button join-btn"
                 href="#"
                 >Join now</a
               >
@@ -471,16 +470,16 @@
           <h4>follow us</h4>
           <div class="social-links">
             <a href="https://www.facebook.com" target="_blank">
-              <i class="fab fa-facebook"></i>
+              <!-- <i class="fab fa-facebook"></i> -->
             </a>
             <a href="https://www.twitter.com" target="_blank">
-              <i class="fab fa-twitter"></i>
+              <!-- <i class="fab fa-twitter"></i> -->
             </a>
             <a href="https://www.instagram.com" target="_blank">
-              <i class="fab fa-instagram"></i>
+              <!-- <i class="fab fa-instagram"></i> -->
             </a>
             <a href="https://www.youtube.com" target="_blank">
-              <i class="fab fa-youtube"></i>
+              <!-- <i class="fab fa-youtube"></i> -->
             </a>
           </div>
         </div>
