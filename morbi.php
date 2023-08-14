@@ -485,8 +485,5 @@
       </div>
     </div>
   </footer>
-  <?php if(isset($_GET['invalid'])){
-                echo "<script>alert('Invalid credentials');</script>";
-              }
-              ?>
+  
 </html>
