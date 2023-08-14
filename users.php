@@ -371,13 +371,20 @@ if (isset($_POST['search'])){
   
   $name = strtolower($_POST['search']);
   
-  $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name OR  lower(user_age) LIKE :name OR  lower(user_gender) LIKE :name OR  lower(user_address) LIKE :name AND user_id != :current_user");
+  // $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name  OR lower(user_gender) LIKE :name OR  lower(user_age) LIKE :name  OR  lower(user_address) LIKE :name AND user_id != :current_user");
+  $stmt =$pdo->prepare("SELECT * FROM users
+  WHERE (LOWER(user_name) LIKE :name
+        OR LOWER(user_age) LIKE :name
+        OR LOWER(user_address) LIKE :name)
+        AND user_id != :current_user");
   $stmt->bindParam(':name', $name_like);
   $stmt -> bindParam(":current_user", $current_user);
   $name_like = '%' . $name . '%';
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
+
+  var_dump($totalUsers);
 }
 else{
   
@@ -386,6 +393,8 @@ else{
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
+
+  echo "ëlse yoyo";
 }
 
 
