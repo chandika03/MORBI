@@ -21,8 +21,7 @@
         }
     }
     if(empty($_SESSION['user'])){//user not found
-        $invalid = "Invalid cred!";
-        // echo 'fail';
+        $invalid = "Invalid credentials!";
         header("Location: /morbi/morbi.php?invalid= $invalid");
     }
 ?>
