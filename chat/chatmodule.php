@@ -106,16 +106,11 @@
 
 </div> -->
 <div class="chat-messages">
-    <?php foreach ($reply_info as $reply) : ?>
-      <div class="message">
-        <?php echo $reply['message']; ?>
-        <!-- Add a delete button for each message -->
-        <form action="" method="post" class="delete-form">
-          <input type="hidden" name="delete_message" value="<?php echo $reply['id']; ?>">
-          <button type="submit" class="delete-button">&#10006;</button>
-        </form>
-      </div>
-    <?php endforeach; ?>
+    <?php foreach ($reply_info as $reply) { ?>
+      <p class="message">
+        <?php echo $reply['message']?>
+    </p>
+    <?php } ?>
   </div>
 
 
@@ -178,9 +173,9 @@
     fetchMessages();
   });
 
-     setTimeout(function() {
-  location.reload(); // Reload the page
-}, 10000); // 10000 milliseconds = 10 seconds
+//      setTimeout(function() {
+//   location.reload(); // Reload the page
+// }, 10000); // 10000 milliseconds = 10 seconds
 
 document.querySelectorAll('.delete-button').forEach(deleteButton => {
       deleteButton.addEventListener('click', (e) => {
