@@ -79,7 +79,6 @@
           <div class="chat-header">
             <h2>Messages</h2>
           </div>
-          
           <div class="form">
                 <div class="inbox">
                     <div class="reply">
@@ -98,14 +97,26 @@
                 </div>
             </div>
             <!-- <div class="chat-messages"> </div> -->
-            <div class="chat-messages">
-  <?php
-  foreach ($reply_info as $reply) {
-    echo '<div class="message">' . $reply['message'] .'</div>';
-  }
-  ?>
-</div>
+            <!-- <div class="chat-messages"> -->
+  <!-- <?php
+  // foreach ($reply_info as $reply) {
+  //   echo '<div class="message">' . $reply['message'] .'</div>';
+  // }
+  // ?>
 
+</div> -->
+<div class="chat-messages">
+    <?php foreach ($reply_info as $reply) : ?>
+      <div class="message">
+        <?php echo $reply['message']; ?>
+        <!-- Add a delete button for each message -->
+        <form action="" method="post" class="delete-form">
+          <input type="hidden" name="delete_message" value="<?php echo $reply['id']; ?>">
+          <button type="submit" class="delete-button">&#10006;</button>
+        </form>
+      </div>
+    <?php endforeach; ?>
+  </div>
 
 
             <div class="chat-input">
@@ -171,6 +182,16 @@
   location.reload(); // Reload the page
 }, 10000); // 10000 milliseconds = 10 seconds
 
+document.querySelectorAll('.delete-button').forEach(deleteButton => {
+      deleteButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const deleteForm = e.target.closest('.delete-form');
+        if (deleteForm) {
+          // Submit the form to delete the message
+          deleteForm.submit();
+        }
+      });
+    });
         // $(document).ready(function(){
         //     $("#send-btn").on("click", function(){
         //         $value = $("#data").val();
@@ -192,6 +213,7 @@
         //         });
         //     });
         // });
+  
     </script>
     
 </body>

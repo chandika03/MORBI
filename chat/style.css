@@ -147,3 +147,23 @@ body {
 .typing-field .input-data button:hover {
   background: #006fef;
 }
+.chat-messages {
+  /* Add styles to make the message container relative for positioning the delete button */
+  position: relative;
+}
+
+.message {
+  /* Add styles to position the delete button in the top right corner */
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+}
+
+.delete-button {
+  /* Add styles to create the delete button */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: red;
+}

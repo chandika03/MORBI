@@ -451,7 +451,7 @@
     </div>
     <script src="./script.js"></script>
     <script src="validate.js"></script>
-    <script>alert("Incorrect username or password.");</script>
+    <!-- <script>alert("Incorrect username or password.");</script> -->
     
   </body>
   <footer class="footer">
