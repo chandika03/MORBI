@@ -1,5 +1,68 @@
 <html>
-    <head></head>
+    <head>
+      <style>
+        .form-box {
+            background-color: #f5c6ec;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .logreg-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logreg-title h2 {
+            color: #9a208c;
+        }
+
+        .logreg-title p {
+            color: #232946;
+        }
+        .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+        }
+        .input-box {
+            /* position:relative; */
+            margin-bottom: 20px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e11299;
+            border-radius: 5px;
+            outline: none;
+            color: #232946;
+        }
+        label {
+            /* position: absolute; */
+            top: 50%;
+            /* transform: translateY(-50%); */
+            left: 40px;
+            color: #232946;
+        }
+        .btn {
+            background-color: #9a208c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #e11299;
+        }
+      </style>
+    </head>
     <body>
 <div class="form-box forgot-password">
   <div class="logreg-title">
@@ -9,22 +72,28 @@
   <form action="reset_password.php" method="post">
     <div class="input-box">
       <span class="icon"><i class="bx bxs-envelope"></i></span>
-      <input type="email" name="email" required />
       <label>Email</label>
+      <input type="email" name="email"  placeholder="example@gmail.com" required />
+      
     </div>
     <div class="input-box">
       <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-      <input type="password" name="new_password" required />
       <label>New Password</label>
+      <input type="password" name="new_password" required />
+      
     </div>
     <div class="input-box">
       <span class="icon"><i class="bx bxs-lock-alt"></i></span>
-      <input type="password" name="confirm_password" required />
       <label>Confirm Password</label>
+      <input type="password" name="confirm_password" required />
+      
     </div>
     <button type="submit" class="btn" name="reset_password">Reset Password</button>
   </form>
+
+  <button class="btn">⬅Back</button>
 </div>
+
 </body>
 </html>
 <?php
