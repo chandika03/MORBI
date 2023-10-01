@@ -200,10 +200,10 @@
         <br /> 
         <br /> 
         <label>Full Name</label>
-        <input type="text" name="name" value="<?php echo $user_info['user_name']?>" placeholder="Full Name"/><br />
+        <input type="text" name="name" value="<?php echo $user_info['user_name']?>" placeholder="Full Name" readonly/><br />
 
         <label>Email</label>
-        <input type="email" name="email" value="<?php echo $user_info['user_email']?>" placeholder="Email"/><br />
+        <input type="email" name="email" value="<?php echo $user_info['user_email']?>" placeholder="Email" readonly/><br />
 
         <label>Age</label>
         <input type="text" name="age" value="<?php echo $user_info['user_age']?>" placeholder="Age" /><br />
