@@ -108,6 +108,7 @@
 <div class="chat-messages">
     <?php foreach ($reply_info as $reply) { ?>
       <p class="message">
+        <h1>nff b fbbgb</h1>
         <?php echo $reply['message']?>
     </p>
     <?php } ?>
@@ -173,9 +174,9 @@
     fetchMessages();
   });
 
-//      setTimeout(function() {
-//   location.reload(); // Reload the page
-// }, 10000); // 10000 milliseconds = 10 seconds
+     setTimeout(function() {
+  location.reload(); // Reload the page
+}, 5000); // 10000 milliseconds = 5 seconds
 
 document.querySelectorAll('.delete-button').forEach(deleteButton => {
       deleteButton.addEventListener('click', (e) => {

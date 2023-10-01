@@ -297,9 +297,10 @@
               <button type="submit" class="btn" id="login-btn">Login</button>
 
               <div class="logreg-link">
+              <a href="reset_password.php" class="register-link">Sign Up</a>
                 <p>Don't have an account?</p>
                 <a href="#" class="register-link">Sign Up</a>
-              </div>
+              </div>  
             </form>
               <a href="admin/adminlogin.php"><button type="submit" class="btn">Login as Admin</button></a>
           </div>

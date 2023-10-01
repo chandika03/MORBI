@@ -211,6 +211,7 @@
         <label>Address</label>
         <input type="text" name="address" value="<?php echo $user_info['user_address']?>" placeholder="Address" /><br />
 
+        <center>
         <label for="gender">Gender:</label><br />
           <input type="radio" id="male" name="gender" value="m" <?php echo ($user_info['user_gender'] === 'male') ? 'checked' : ''; ?> />
           <label for="male">Male</label>
@@ -218,6 +219,7 @@
           <label for="female">Female</label>
           <input type="radio" id="other" name="gender" value="o" <?php echo ($user_info['user_gender'] === 'other') ? 'checked' : ''; ?> />
           <label for="other">Other</label><br />
+          </center>
 
         <br /><br />
         <label for="imageInput">Select an image:</label>

@@ -430,29 +430,13 @@ if (isset($_POST['search'])){
   
   $name = strtolower($_POST['search']);
   
-  // // $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name  OR lower(user_gender) LIKE :name OR  lower(user_age) LIKE :name  OR  lower(user_address) LIKE :name AND user_id != :current_user");
-  // $stmt =$pdo->prepare("SELECT * FROM users
-  // WHERE (LOWER(user_name) LIKE :name
-  //       OR LOWER(user_age) LIKE :name
-  //       OR LOWER(user_address) LIKE :name
-  //       OR LOWER(user_gender) LIKE :name)
-  //       AND user_id != :current_user");
-
-  $validGenders = ['m', 'f','o'];
-  if (in_array($name, $validGenders)) {
-    // If the input is a valid gender, perform a search by gender
-    $stmt = $pdo->prepare("SELECT * FROM users
-      WHERE LOWER(user_gender) LIKE :name AND user_id != :current_user");
-
-    echo "Gebder";
-  } else {
-    // Otherwise, perform a search by name, age, and address
-    $stmt = $pdo->prepare("SELECT * FROM users
-      WHERE (LOWER(user_name) LIKE :name
-      OR LOWER(user_age) LIKE :name
-      OR LOWER(user_address) LIKE :name)
-      AND user_id != :current_user");
-  }
+  // $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name  OR lower(user_gender) LIKE :name OR  lower(user_age) LIKE :name  OR  lower(user_address) LIKE :name AND user_id != :current_user");
+  $stmt =$pdo->prepare("SELECT * FROM users
+  WHERE (LOWER(user_name) LIKE :name
+        OR LOWER(user_age) LIKE :name
+        OR LOWER(user_address) LIKE :name
+        OR LOWER(user_gender) LIKE :name)
+        AND user_id != :current_user");
 
   $stmt->bindParam(':name', $name_like);
   $stmt -> bindParam(":current_user", $current_user);
@@ -461,7 +445,7 @@ if (isset($_POST['search'])){
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  var_dump($totalUsers);
+  // var_dump($totalUsers);
 }
 else{
   
