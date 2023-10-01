@@ -90,8 +90,9 @@
     </div>
     <button type="submit" class="btn" name="reset_password">Reset Password</button>
   </form>
-
-  <button class="btn">⬅Back</button>
+  <a href="morbi.php">
+    <button class="btn">⬅Back</button>
+</a>
 </div>
 
 </body>
