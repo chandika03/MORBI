@@ -371,14 +371,36 @@ button {
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
+                    <option value="Others">Others</option>
                 </select>
                 <input type="number" name="age" id="age" placeholder="Age">
-                <select name="location" id="location">
-                    <option value="">Select Location</option>
-                    <option value="city1">City 1</option>
-                    <option value="city2">City 2</option>
-                    <option value="city3">City 3</option>
-                </select>
+                
+                <input type="text" name="location" id="location" placeholder="Select location">
+                    <!-- <option value="">Select Location</option>
+                    <option value="city1">Taplejung</option>
+                    <option value="city2">Sankhuwasabha</option>
+                    <option value="city3">Solukhumbu</option>
+                    <option value="city4">Morang</option>
+                    <option value="city5">Ilam</option>
+                    <option value="city6">Jhapa</option>
+                    <option value="city7">Khotang</option>
+                    <option value="city8">Jhapa</option>
+                    <option value="city9">Bhojpur</option>
+                    <option value="city10">Bhaktapur</option>
+                    <option value="city11">Lalitpur</option>
+                    <option value="city12">Kathmandu</option>
+                    <option value="city13">Nuwakot</option>
+                    <option value="city14">Kavrepalanchok</option>
+                    <option value="city15">Chitwan</option>
+                    <option value="city16">Kaski</option>
+                    <option value="city17">Gorkha	</option>
+                    <option value="city18">Mustang</option>
+                    <option value="city19">Arghakhanchi</option>
+                    <option value="city20">Kapilvastu</option>
+                    <option value="city21">Bardiya</option>
+                    <option value="city22">Achham</option>
+
+                </select> -->
                 <button type="submit">Search</button>
             </form>
       </nav>
