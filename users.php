@@ -308,20 +308,79 @@ section .card .image img {
   text-decoration: none;
 }
 
+/* .search-form {
+    display: flex;
+    align-items: center;
+}
+
+select, input {
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button {
+    background-color: #b8c1ec;
+    color: #ffeaea;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+} */
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+select, input {
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button {
+  background-color: #eebbc3;
+  color: #fffffe;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 </style>
 </head>
 
 <body>
 <header class="header">
-      <a href="#" class="logo">MORBI</a>
+      <a href="morbi.php" class="logo">MORBI</a>
       <nav class="navbar">
-        <a href="morbi.php">Home</a>
+        <!-- <a href="morbi.php">Home</a>
         <a href="users_about_us.php">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
-        </form>
+        </form> -->
        
+        <form class="search-form">
+                <select name="gender" id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <input type="number" name="age" id="age" placeholder="Age">
+                <select name="location" id="location">
+                    <option value="">Select Location</option>
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                    <option value="city3">City 3</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
       </nav>
 
   <?php
