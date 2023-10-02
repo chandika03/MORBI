@@ -143,7 +143,7 @@
         </form>
     </div>
     <div class="back-button">
-        <a href="adminlogin.php">⬅Back</a>
+        <a href="../morbi.php">⬅Back</a>
       </div>
     </div>
 </body>
