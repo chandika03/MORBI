@@ -107,7 +107,7 @@ if (isset($_POST['reset_password'])) {
     $confirm_password = $_POST['confirm_password'];
 
     // Check if the email exists in your database using PDO
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE user_email = :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -119,9 +119,9 @@ if (isset($_POST['reset_password'])) {
             $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
 
             // Update the user's password in the database using PDO
-            $stmt = $pdo->prepare("UPDATE users SET password = :password WHERE id = :user_id");
+            $stmt = $pdo->prepare("UPDATE users SET user_password = :password WHERE user_id = :user_id");
             $stmt->bindParam(':password', $hashed_new_password);
-            $stmt->bindParam(':user_id', $user['id']);
+            $stmt->bindParam(':user_id', $user['user_id']);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {

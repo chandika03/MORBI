@@ -366,7 +366,7 @@ button {
           <i class="fa-solid fa-magnifying-glass"></i>
         </form> -->
        
-        <form class="search-form">
+        <form class="search-form" role="search" action="" method="POST">
                 <select name="gender" id="gender">
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
@@ -374,33 +374,8 @@ button {
                     <option value="Others">Others</option>
                 </select>
                 <input type="number" name="age" id="age" placeholder="Age">
-                
+        
                 <input type="text" name="location" id="location" placeholder="Select location">
-                    <!-- <option value="">Select Location</option>
-                    <option value="city1">Taplejung</option>
-                    <option value="city2">Sankhuwasabha</option>
-                    <option value="city3">Solukhumbu</option>
-                    <option value="city4">Morang</option>
-                    <option value="city5">Ilam</option>
-                    <option value="city6">Jhapa</option>
-                    <option value="city7">Khotang</option>
-                    <option value="city8">Jhapa</option>
-                    <option value="city9">Bhojpur</option>
-                    <option value="city10">Bhaktapur</option>
-                    <option value="city11">Lalitpur</option>
-                    <option value="city12">Kathmandu</option>
-                    <option value="city13">Nuwakot</option>
-                    <option value="city14">Kavrepalanchok</option>
-                    <option value="city15">Chitwan</option>
-                    <option value="city16">Kaski</option>
-                    <option value="city17">Gorkha	</option>
-                    <option value="city18">Mustang</option>
-                    <option value="city19">Arghakhanchi</option>
-                    <option value="city20">Kapilvastu</option>
-                    <option value="city21">Bardiya</option>
-                    <option value="city22">Achham</option>
-
-                </select> -->
                 <button type="submit">Search</button>
             </form>
       </nav>
@@ -424,6 +399,8 @@ button {
 ?>
 
       <?php 
+
+
        $stmt = $pdo->prepare("SELECT user_image FROM users WHERE user_id = :current_user");
        // $stmt = $pdo->prepare("SELECT * FROM users");
        $stmt -> bindParam(":current_user", $current_user);
@@ -448,36 +425,47 @@ button {
 
           <?php
         
-if (isset($_POST['search'])){
+if (isset($_POST['gender']) || isset($_POST['age']) || isset($_POST['location'])){
+
+  var_dump($_POST);
   
-  $name = strtolower($_POST['search']);
+  $gender = strtolower($_POST['gender']);
+  $age = strtolower($_POST['age']);
+  $location = strtolower($_POST['location']);
+
+  echo $name;
   
   // $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name  OR lower(user_gender) LIKE :name OR  lower(user_age) LIKE :name  OR  lower(user_address) LIKE :name AND user_id != :current_user");
   $stmt =$pdo->prepare("SELECT * FROM users
-  WHERE (LOWER(user_name) LIKE :name
-        OR LOWER(user_age) LIKE :name
-        OR LOWER(user_address) LIKE :name
-        OR LOWER(user_gender) LIKE :name)
+  WHERE (LOWER(user_age) LIKE :age
+        OR LOWER(user_address) LIKE :location
+        OR LOWER(user_gender) LIKE :gender)
         AND user_id != :current_user");
 
-  $stmt->bindParam(':name', $name_like);
+  $stmt->bindParam(':age', $age_like);
+  $stmt->bindParam(':location', $location_like);
+  $stmt->bindParam(':gender', $gender_like);
   $stmt -> bindParam(":current_user", $current_user);
-  $name_like = '%' . $name . '%';
+
+  $age_like = '%' . $age . '%';
+  $location_like = '%' . $location . '%';
+  $gender_like = '%' . $gender . '%';
+  
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  // var_dump($totalUsers);
+  var_dump($totalUsers);
 }
 else{
-  
+
   $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id != :current_user");
   $stmt -> bindParam(":current_user", $current_user);
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  echo "lala";
+  var_dump($totalUsers);
 }
 
 
