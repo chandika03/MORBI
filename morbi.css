@@ -103,6 +103,11 @@ html {
   text-decoration: none;
   color: #fff;
 }
+.reg {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
 .icon-close {
   position: absolute;
   top: 0;

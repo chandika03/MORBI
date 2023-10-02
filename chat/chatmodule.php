@@ -105,14 +105,30 @@
   // ?>
 
 </div> -->
-<div class="chat-messages">
-    <?php foreach ($reply_info as $reply) { ?>
+<!-- <div class="chat-messages">
+    <?php 
+    // foreach ($reply_info as $reply) { ?>
       <p class="message">
         <h1>nff b fbbgb</h1>
-        <?php echo $reply['message']?>
+        <?php 
+        // echo $reply['message']?>
     </p>
+    <?php 
+  // } ?>
+  </div> -->
+  <div class="chat-messages">
+    <?php foreach ($reply_info as $reply) { ?>
+        <?php if ($reply['fromUser'] == $fromUser) { ?>
+            <p class="message sent-message">
+                <?php echo $reply['message'] ?>
+            </p>
+        <?php } else { ?>
+            <p class="message received-message">
+                <?php echo $reply['message'] ?>
+            </p>
+        <?php } ?>
     <?php } ?>
-  </div>
+</div>
 
 
             <div class="chat-input">

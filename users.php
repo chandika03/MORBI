@@ -308,76 +308,20 @@ section .card .image img {
   text-decoration: none;
 }
 
-/* .search-form {
-    display: flex;
-    align-items: center;
-}
-
-select, input {
-    height: 30px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-button {
-    background-color: #b8c1ec;
-    color: #ffeaea;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-} */
-
-.search-form {
-    display: flex;
-    align-items: center;
-}
-
-select, input {
-    height: 30px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-button {
-  background-color: #eebbc3;
-  color: #fffffe;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 </style>
 </head>
 
 <body>
 <header class="header">
-      <a href="morbi.php" class="logo">MORBI</a>
+      <a href="#" class="logo">MORBI</a>
       <nav class="navbar">
-        <!-- <a href="morbi.php">Home</a>
+        <a href="morbi.php">Home</a>
         <a href="users_about_us.php">About us</a>
         <form role="search" method="POST" action="">
           <input type="search" name= "search" placeholder="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
-        </form> -->
+        </form>
        
-        <form class="search-form" role="search" action="" method="POST">
-                <select name="gender" id="gender">
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="Others">Others</option>
-                </select>
-                <input type="number" name="age" id="age" placeholder="Age">
-        
-                <input type="text" name="location" id="location" placeholder="Select location">
-                <button type="submit">Search</button>
-            </form>
       </nav>
 
   <?php
@@ -399,8 +343,6 @@ button {
 ?>
 
       <?php 
-
-
        $stmt = $pdo->prepare("SELECT user_image FROM users WHERE user_id = :current_user");
        // $stmt = $pdo->prepare("SELECT * FROM users");
        $stmt -> bindParam(":current_user", $current_user);
@@ -425,47 +367,36 @@ button {
 
           <?php
         
-if (isset($_POST['gender']) || isset($_POST['age']) || isset($_POST['location'])){
-
-  var_dump($_POST);
+if (isset($_POST['search'])){
   
-  $gender = strtolower($_POST['gender']);
-  $age = strtolower($_POST['age']);
-  $location = strtolower($_POST['location']);
-
-  echo $name;
+  $name = strtolower($_POST['search']);
   
   // $stmt =$pdo->prepare("SELECT * FROM users where lower(user_name) LIKE :name  OR lower(user_gender) LIKE :name OR  lower(user_age) LIKE :name  OR  lower(user_address) LIKE :name AND user_id != :current_user");
   $stmt =$pdo->prepare("SELECT * FROM users
-  WHERE (LOWER(user_age) LIKE :age
-        OR LOWER(user_address) LIKE :location
-        OR LOWER(user_gender) LIKE :gender)
+  WHERE (LOWER(user_name) LIKE :name
+        OR LOWER(user_age) LIKE :name
+        OR LOWER(user_address) LIKE :name
+        OR LOWER(user_gender) LIKE :name)
         AND user_id != :current_user");
 
-  $stmt->bindParam(':age', $age_like);
-  $stmt->bindParam(':location', $location_like);
-  $stmt->bindParam(':gender', $gender_like);
+  $stmt->bindParam(':name', $name_like);
   $stmt -> bindParam(":current_user", $current_user);
-
-  $age_like = '%' . $age . '%';
-  $location_like = '%' . $location . '%';
-  $gender_like = '%' . $gender . '%';
-  
+  $name_like = '%' . $name . '%';
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  var_dump($totalUsers);
+  // var_dump($totalUsers);
 }
 else{
-
+  
   $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id != :current_user");
   $stmt -> bindParam(":current_user", $current_user);
   $stmt -> execute();
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $totalUsers = $stmt->rowCount();
 
-  var_dump($totalUsers);
+  echo "lala";
 }
 
 
