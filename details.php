@@ -135,9 +135,9 @@
         height: 120px;
       }
 
-      /* .fullname {
+      .fullname {
         /* Add additional styling here if needed */
-      /* } */ */
+      }
 
       label {
         display: block;

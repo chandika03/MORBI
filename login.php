@@ -25,7 +25,7 @@
          $invalid = "Invalid credentials!";
          echo '<script>window.onload = function() { alert("Invalid credentials!"); }</script>'; // Display alert message using JavaScript in a popup window
          echo '<script>alert("Incorrect username or password.");</script>'
-     }
+    }
 ?>
 
 <!DOCTYPE html>

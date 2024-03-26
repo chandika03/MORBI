@@ -123,7 +123,7 @@ if (isset($_POST['reset_password'])) {
             $stmt->bindParam(':password', $hashed_new_password);
             $stmt->bindParam(':user_id', $user['user_id']);
             $stmt->execute();
-
+            
             if ($stmt->rowCount() > 0) {
                 // Password reset successful
                 echo "Password reset successful. You can now log in with your new password.";

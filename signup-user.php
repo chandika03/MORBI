@@ -55,7 +55,7 @@
                             </div>
                             <P><?php 
                             
-                            echo $invalid."yoyoyo"; ?></p>
+                            echo $invalid."hello"; ?></p>
                         </form>
                         <p class="mb-0 text-center">Already have an account?<a href="login.php">Login</a></p>
                     </div>
