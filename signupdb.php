@@ -31,7 +31,7 @@
         }
     }
     else{
-        $invalid = "Password didn't Matched";
+        $invalid = "Password didn't Match";
         header("Location: /morbi/morbi.php?invalid= $invalid");
     }   
 ?>
